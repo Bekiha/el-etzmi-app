@@ -1,0 +1,1730 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אל עצמי</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #F9F9F7 0%, #F2F1ED 50%, #FAFAF8 100%);
+            min-height: 100vh;
+            padding: 20px;
+            direction: rtl;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(249, 249, 247, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(140, 184, 156, 0.1);
+            border: 1px solid rgba(140, 184, 156, 0.3);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .logo {
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Assistant:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700&family=Heebo:wght@300;400;500;600;700&family=Varela+Round&display=swap');
+        
+        .header h1 {
+            font-family: 'Varela Round', 'Alef', 'Heebo', 'Rubik', 'Assistant', sans-serif;
+            color: #8cb89c;
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(140, 184, 156, 0.15);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .header p {
+            color: #D4B896;
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+        
+        .nav-btn {
+            background: linear-gradient(45deg, #7dd3c0, #5eead4);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(125, 211, 192, 0.3);
+        }
+        
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(125, 211, 192, 0.4);
+            background: linear-gradient(45deg, #5eead4, #34d399);
+        }
+        
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background: #D4B896;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .calendar-header {
+            background: #8cb89c;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .calendar-day {
+            background: #F9F9F7;
+            padding: 15px;
+            min-height: 80px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid rgba(212, 184, 150, 0.5);
+        }
+        
+        .calendar-day:hover {
+            background: #F4F4F2;
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(140, 184, 156, 0.15);
+        }
+        
+        .calendar-day.other-month {
+            background: #f5f0eb;
+            color: #b5a397;
+        }
+        
+        .calendar-day.today {
+            background: linear-gradient(45deg, #8cb89c, #7AA689);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .calendar-day.has-entry {
+            background: linear-gradient(45deg, #c7aca6, #bfa19b);
+            color: white;
+        }
+        
+        .day-number {
+            font-weight: 600;
+            font-size: 1.1em;
+            color: #737373;
+        }
+        
+        .calendar-day.today .day-number,
+        .calendar-day.has-entry .day-number {
+            color: white;
+        }
+        
+        .day-special-icon {
+            font-size: 14px;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            opacity: 0.9;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background: #F9F9F7;
+            margin: 2% auto;
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(140, 184, 156, 0.2);
+            border: 1px solid rgba(140, 184, 156, 0.3);
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            left: 25px;
+            color: #b5a397;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .close:hover {
+            color: #8cb89c;
+        }
+        
+        .modal h2 {
+            color: #C86F7B;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.8em;
+            font-weight: 600;
+        }
+        
+        .section {
+            background: #F4F4F2;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            border-right: 5px solid #D4B896;
+            border: 1px solid rgba(212, 184, 150, 0.2);
+        }
+        
+        .section h3 {
+            color: #C86F7B;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .section.collapsed {
+            background: #f0f4f8;
+            border-right-color: #a0aec0;
+        }
+        
+        .section.collapsed .section-content {
+            display: none;
+        }
+        
+        .section-toggle {
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .section-toggle::after {
+            content: "▼";
+            transition: transform 0.3s ease;
+            color: #667eea;
+            font-size: 14px;
+        }
+        
+        .section.collapsed .section-toggle::after {
+            transform: rotate(-90deg);
+        }
+        
+        .warning-section {
+            background: #fffbf0;
+            border: 2px solid #f6ad55;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            color: #744210;
+        }
+        
+        .warning-section h4 {
+            color: #c05621;
+            margin-bottom: 10px;
+        }
+        
+        .mood-selector {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        
+        .mood-btn {
+            padding: 10px 15px;
+            border: 2px solid #e2e8f0;
+            background: white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2em;
+        }
+        
+        .mood-btn.selected {
+            background: #8cb89c;
+            color: white;
+            border-color: #8cb89c;
+        }
+        
+        .reference-btn {
+            background: linear-gradient(45deg, #B8A9D9, #A896C7);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .reference-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(184, 169, 217, 0.3);
+        }
+        
+        textarea, input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 100px;
+            transition: border-color 0.3s ease;
+        }
+        
+        textarea:focus, input:focus {
+            outline: none;
+            border-color: #8cb89c;
+            box-shadow: 0 0 0 3px rgba(140, 184, 156, 0.1);
+        }
+        
+        .breathing-exercise {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .breathing-circle {
+            width: 150px;
+            height: 150px;
+            border: 3px solid #8cb89c;
+            border-radius: 50%;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            color: #8cb89c;
+            transition: all 4s ease-in-out;
+        }
+        
+        .breathing-circle.inhale {
+            transform: scale(1.3);
+            background: rgba(140, 184, 156, 0.1);
+        }
+        
+        .breathing-circle.exhale {
+            transform: scale(1);
+            background: transparent;
+        }
+        
+        .support-message {
+            background: linear-gradient(45deg, #C86F7B, #B55E6A);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+        
+        .save-btn {
+            background: linear-gradient(45deg, #8cb89c, #7AA689);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .save-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(140, 184, 156, 0.4);
+        }
+        
+        .analysis-section {
+            background: #F4F4F2;
+            border-right-color: #C86F7B;
+        }
+        
+        .analysis-section h3 {
+            color: #C86F7B;
+        }
+        
+        .pin-section {
+            background: #F9F5E6;
+            border: 2px solid #D4B896;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .pin-input {
+            width: 200px;
+            padding: 15px;
+            font-size: 24px;
+            text-align: center;
+            letter-spacing: 5px;
+            border: 2px solid #8cb89c;
+            border-radius: 10px;
+            margin: 10px;
+        }
+        
+        .help-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1001;
+            backdrop-filter: blur(5px);
+        }
+        
+        .help-content {
+            background: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 700px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .export-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        
+        .export-btn {
+            background: linear-gradient(45deg, #c6b79b, #B9A488);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .export-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(198, 183, 155, 0.3);
+        }
+        
+        .reference-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1002;
+            backdrop-filter: blur(5px);
+        }
+        
+        .reference-content {
+            background: white;
+            margin: 2% auto;
+            padding: 20px;
+            border-radius: 20px;
+            width: 95%;
+            max-width: 1000px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        
+        .reference-image {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .calendar {
+                font-size: 0.9em;
+            }
+            
+            .calendar-day {
+                min-height: 60px;
+                padding: 10px;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+                padding: 20px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            .header {
+                margin-bottom: 80px;
+            }
+            
+            .header > div[style*="position: absolute"] {
+                position: relative !important;
+                top: auto !important;
+                right: auto !important;
+                margin-top: 20px;
+                text-align: center;
+            }
+            
+            .export-options {
+                justify-content: center;
+                margin-top: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2.5em;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="container" style="display: block;">
+        <div class="header">
+            <!-- Place for logo image - you'll need to replace the src with your actual image URL or base64 -->
+            <img id="logoImage" 
+                 src="logo.png" 
+                 alt="אל עצמי - מסע של הקשבה והתרחבות הלב" 
+                 style="max-width: 350px; width: 80%; height: auto; margin: 20px auto 30px; display: block;"
+                 onerror="this.style.display='none'; document.getElementById('fallbackTitle').style.display='block';">
+            <div id="fallbackTitle" style="display: none;">
+                <h1>אל עצמי</h1>
+                <p>מסע של הקשבה והתרחבות הלב</p>
+            </div>
+        </div>
+        
+        <div style="max-width: 400px; margin: 0 auto; text-align: center;">
+            <div class="section">
+                <h3>👋 ברוכה הבאה!</h3>
+                <p style="margin-bottom: 20px;">בחרי שם משתמש אישי כדי להתחיל את המסע שלך</p>
+                <input type="text" id="usernameInput" placeholder="השם שלי..." style="min-height: 50px; text-align: center; font-size: 18px;">
+            </div>
+            
+            <div class="pin-section">
+                <h3>🔐 הגנה עם סיסמא (אופציונלי)</h3>
+                <p style="margin-bottom: 15px;">הגדרי סיסמא של 4-8 ספרות להגנה נוספת</p>
+                <input type="password" id="pinInput" class="pin-input" placeholder="****" maxlength="8" pattern="[0-9]{4,8}">
+                <p style="font-size: 12px; color: #666;">השאירי ריק אם את לא רוצה סיסמא</p>
+            </div>
+            
+            <button class="save-btn" onclick="login()" style="margin-top: 20px;">
+                🚀 התחל את המסע שלי
+            </button>
+            
+            <div style="margin-top: 30px; padding: 20px; background: #f0f8ff; border-radius: 10px; font-size: 14px; color: #666;">
+                <p><strong>🔒 פרטיות מלאה:</strong></p>
+                <p>כל המידע שלך נשמר רק במכשיר שלך ולא נשלח לאף מקום</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Help Modal -->
+    <div id="helpModal" class="help-modal">
+        <div class="help-content">
+            <span class="close" onclick="closeHelp()" style="position: absolute; top: 15px; left: 25px;">&times;</span>
+            <h2>📚 מדריך שימוש - גיבוי ושחזור</h2>
+            
+            <div class="section">
+                <h3>💾 איך לגבות את הנתונים שלי?</h3>
+                <p><strong>שלב 1:</strong> לחצי על כפתור "💾 שמירה" או "📊 אקסל" בפינה הימנית העליונה</p>
+                <p><strong>שלב 2:</strong> הקובץ יורד אוטומטית למחשב שלך</p>
+                <p><strong>שלב 3:</strong> העלי את הקובץ לגוגל דרייב/דרופבוקס לשמירה בטוחה</p>
+            </div>
+            
+            <div class="section">
+                <h3>📂 איך לשחזר נתונים?</h3>
+                <p><strong>שלב 1:</strong> לחצי על כפתור "📂 שחזר"</p>
+                <p><strong>שלב 2:</strong> בחרי את קובץ הגיבוי מהמחשב שלך</p>
+                <p><strong>שלב 3:</strong> אשרי את השחזור - הנתונים יחזרו בדיוק כמו שהיו</p>
+            </div>
+            
+            <div class="section" style="background: #e6fffa; border-right-color: #38b2ac;">
+                <h3>📊 הבדל בין סוגי הגיבוי:</h3>
+                <p><strong>💾 שמירה:</strong> מתאים לשחזור מלא באפליקציה הזו</p>
+                <p><strong>📊 אקסל:</strong> מתאים לעיבוד נתונים, גרפים ודוחות חיצוניים</p>
+            </div>
+            
+            <div class="section" style="background: #fff5f5; border-right-color: #f56565;">
+                <h3>⚠️ טיפים חשובים:</h3>
+                <p>• עשי גיבוי לפחות פעם בשבוע</p>
+                <p>• שמרי את קבצי הגיבוי במקום בטוח (ענן)</p>
+                <p>• אל תמחקי גיבויים ישנים - הם עשויים להיות שימושיים</p>
+                <p>• בדקי מדי פעם שהגיבוי עובד על ידי שחזור קטן</p>
+            </div>
+            
+            <button class="save-btn" onclick="closeHelp()" style="margin-top: 20px;">
+                ✅ הבנתי!
+            </button>
+        </div>
+    </div>
+
+    <!-- Emotions Reference Modal -->
+    <div id="emotionsModal" class="reference-modal">
+        <div class="reference-content">
+            <span class="close" onclick="closeEmotionsReference()" style="position: absolute; top: 15px; left: 25px;">&times;</span>
+            <h2 style="margin-bottom: 20px; color: #4a5568;">רשימת רגשות</h2>
+            <div style="text-align: right; line-height: 2; padding: 20px; background: #f9f9f9; border-radius: 15px; max-height: 70vh; overflow-y: auto;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div>
+                        <h3 style="color: #C86F7B; margin-bottom: 10px;">💝 חמלה</h3>
+                        <p>חיבה, ידידות, חברות, הזדהות, רוך, חום, פתיחות, אהבה</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #8cb89c; margin-bottom: 10px;">💪 ביטחון</h3>
+                        <p>חיזוק, העצמה, עידוד, גאווה, תקווה</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #D4B896; margin-bottom: 10px;">⚡ חיות</h3>
+                        <p>ברכה, קורן, התפעמות, תדהמה, התרגשות, התלהבות, להיטות, מרץ, השתוקקות, פעלתנות</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #8cb89c; margin-bottom: 10px;">😌 רוגע</h3>
+                        <p>אמון, קבלה, חיבור, נחת, מימוש, הגשמה, סיפוק, עדינות, נינוחות, שלווה, בהירות, נועם, שוויון נפש, שקט, שביעות רצון</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #B8A9D9; margin-bottom: 10px;">😊 שמחה</h3>
+                        <p>עליזות, הנאה, שעשוע, אושר, עונג</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #8cb89c; margin-bottom: 10px;">🌱 רעננות</h3>
+                        <p>ערנות, חיות מחודשת, שיקום, מלאות מחודשת, צלילות דעת</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #D4B896; margin-bottom: 10px;">🙏 הודיה</h3>
+                        <p>הארה, הכרת תודה, אופטימיות, חיוביות</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #8cb89c; margin-bottom: 10px;">🔍 סקרנות</h3>
+                        <p>שילהוב, עניין, מעורבות, השראה, להט</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #667eea; margin-bottom: 10px;">😕 בלבול</h3>
+                        <p>פיצול, קריעה, אובדן דרך, בלבול, מבוכה, אובדן עצות, פיזור דעת, התפזרות, הסחת דעת</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #f56565; margin-bottom: 10px;">😰 פחד</h3>
+                        <p>חשש, חשדנות, בהלה, פאניקה, בעתה, אימה, שיתוק, דאגה, טרדה</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #C86F7B; margin-bottom: 10px;">💔 כאב</h3>
+                        <p>ייסורים, הרס, שברון, חרטה, ייסורי מצפון, אשמה, תהפוכה, מהומה, פגיעות</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #e53e3e; margin-bottom: 10px;">😠 שנאה</h3>
+                        <p>איבה, טינה, תוקפנות, מרירות, סלידה, דחיה, גועל, בוז</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #a0aec0; margin-bottom: 10px;">😑 שעמום</h3>
+                        <p>נתק, ניכור, ריחוק, אפאטיות, קור, סגירות, מופנמות, חוסר סבלנות, פתיל קצר</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #D4B896; margin-bottom: 10px;">😒 קנאה</h3>
+                        <p>רכושנות</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #718096; margin-bottom: 10px;">😫 עייפות</h3>
+                        <p>הצפה, התשה, אפיסת כוחות, נמנום, לאות, תשישות</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #f6ad55; margin-bottom: 10px;">😬 אי נוחות</h3>
+                        <p>רטינה, זעזוע, הלם, הפתעה, דריכות, אי נחת, ערעור, חוסר מנוחה, חוסר ודאות, חוסר שקט</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #ed8936; margin-bottom: 10px;">😤 עצבנות</h3>
+                        <p>חוסר סיפוק, זעף, תסכול, חוסר סבלנות, טרדה</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #5a67d8; margin-bottom: 10px;">😢 עצבות</h3>
+                        <p>מעורר רחמים, כמיהה, נואשות, חוסר ישע, חוסר תקווה, געגוע, לב כבד, אכזבה, ייאוש, מלנכוליה, דיכאון, דכדוך, קדרות</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #f687b3; margin-bottom: 10px;">😳 מבוכה</h3>
+                        <p>בושה, ביישנות, פגיעות, שבריריות, חוסר ביטחון, איפוק, ריסון</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #9f7aea; margin-bottom: 10px;">🤒 תחושות גוף</h3>
+                        <p>כיווץ, חולי, חולשה, ריקנות, חנק, כאב, מתח, לחץ, רעד, חוסר נשימה, סחוט</p>
+                    </div>
+                </div>
+                <div style="margin-top: 30px; padding: 15px; background: #e6fffa; border-radius: 10px; text-align: center;">
+                    <strong style="color: #8cb89c;">💡 טיפ:</strong> נסי לזהות בדיוק איזה רגש את חווה - זה יעזור לך להבין מה את צריכה כרגע
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Needs Reference Modal -->
+    <div id="needsModal" class="reference-modal">
+        <div class="reference-content">
+            <span class="close" onclick="closeNeedsReference()" style="position: absolute; top: 15px; left: 25px;">&times;</span>
+            <h2 style="margin-bottom: 20px; color: #4a5568;">רשימת צרכים</h2>
+            <div style="text-align: right; line-height: 2; padding: 20px; background: #f9f9f9; border-radius: 15px; max-height: 70vh; overflow-y: auto;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                    <div>
+                        <h3 style="color: #8cb89c; margin-bottom: 10px;">🦅 חופש</h3>
+                        <p>עצמאות, זמן, מרחב, חופש בחירה, אוטונומיה</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #C86F7B; margin-bottom: 10px;">🤍 כנות</h3>
+                        <p>שקיפות, יושרה, אותנטיות, אמיתיות</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #D4B896; margin-bottom: 10px;">🤸‍♀️ משחק / חוויות מגוונות</h3>
+                        <p>רב־גוניות, חוויות, קלילות, ספונטניות, הרפתקנות, פנטזיה, ויזואליות, חקר, הומור, גיוון, כיף, צחוק, גילוי, חיות, זרימה, חגיגה</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #B8A9D9; margin-bottom: 10px;">✨ תחושת משמעות</h3>
+                        <p>פשטות, רוחניות, מיקוד פנימי, נוכחות, יש לי מקום בעולם, לקחת חלק, להילקח בחשבון, להיות בעל חשיבות, שינוי צורה, התמרה, שחרור, מודעות, ערנות, בהירות, ביטוי, יכולת השפעה, יעילות, התפתחות, גדילה, התקדמות, צמיחה, דרבון, אתגר, השראה, למידה, יצירתיות, העצמה, יכולת, מסגולות, עוצמה, כוח, חוסן פנימי, כבוד עצמי, ביטחון עצמי, ערך עצמי, אמונה, העשרת החיים, תקווה, תכלית, תהליך, תרומה</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #C86F7B; margin-bottom: 10px;">💞 חיבור</h3>
+                        <p>אדיבות, רגישות, רכות, עדינות, קבלה, הכלה, נתינה, לחלוק, להיות מובן (הבנה), להבין, להישמע (הקשבה), לשמוע, להיראות (נראות), לראות, ידיעה, עזרה, תמיכה, הזנה, המשכיות, עקביות, כבוד, הדדיות, השתתפות, להיות חלק, הכללה, שותפות, רעות, ידידות, חברות, קהילה, שייכות, פתיחות, אמון, שיתוף פעולה, שיתופיות, תקשורת, תשומת לב, הכרה, הערכה, חיבה, אישור, עידוד, אמפתיה, חמלה, אינטימיות, קרבה, אהבה, טיפוח, אכפתיות</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #8cb89c; margin-bottom: 10px;">🏃‍♀️ חוויה גופנית</h3>
+                        <p>מגע, שינה, ביטחון פיזי, מנוחה, אימון גופני, תנועה, המשכיות, ביטחון רגשי, הגנה מפני כאב, בטיחות, הגנה, אבטחה, מחסה, אור, מים, מזון, אוויר</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #D4B896; margin-bottom: 10px;">⚖️ הרמוניה</h3>
+                        <p>הוגנות, שוויון, איזון, יציבות, ודאות, אינטגרציה, עיכול, שלמות, אחווה, אחדות, סדר, יופי, קלילות, שלווה, הרפיה, רוגע, השלמה, שלום</p>
+                    </div>
+                </div>
+                <div style="margin-top: 30px; padding: 15px; background: #fff5f5; border-radius: 10px; text-align: center;">
+                    <strong style="color: #C86F7B;">💡 חשוב לזכור:</strong> כל הצרכים שלנו תקפים וחשובים. הרגש שלנו מצביע על צרכים שמתמלאים או לא מתמלאים
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PIN Verification Screen -->
+    <div id="pinScreen" class="container" style="display: none;">
+        <div class="header">
+            <h1>🔐 הכנסת סיסמא</h1>
+            <p>שלום <span id="pinUsername"></span>, אנא הכניסי את הסיסמא שלך</p>
+        </div>
+        
+        <div style="max-width: 300px; margin: 0 auto; text-align: center;">
+            <div class="pin-section">
+                <input type="password" id="pinVerification" class="pin-input" placeholder="****" maxlength="8" pattern="[0-9]{4,8}">
+                <br>
+                <button class="save-btn" onclick="verifyPin()" style="margin-top: 20px;">
+                    ✅ כניסה
+                </button>
+                <br>
+                <button class="nav-btn" onclick="backToLogin()" style="margin-top: 10px;">
+                    ← חזור
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="mainApp" class="container" style="display: none;">
+        <div class="header">
+            <h1>אל עצמי</h1>
+            <p><span style="color: #C86F7B; font-weight: bold;">שלום <span id="currentUser"></span>!</span> 💜</p>
+            <div style="position: absolute; top: 20px; right: 20px; z-index: 10;">
+                <button class="export-btn" onclick="logout()" style="padding: 8px 15px; font-size: 14px; margin-left: 10px;">
+                    🚪 התנתקות
+                </button>
+                <button class="export-btn" onclick="showHelp()" style="padding: 8px 15px; font-size: 14px; margin-left: 10px;">
+                    ❓ עזרה
+                </button>
+                <div class="export-options">
+                    <button class="export-btn" onclick="exportData()">💾 שמירה</button>
+                    <button class="export-btn" onclick="exportToExcel()">📊 אקסל</button>
+                    <button class="export-btn" onclick="importData()">📂 שחזר</button>
+                </div>
+            </div>
+            <input type="file" id="fileInput" accept=".json" style="display: none;" onchange="handleFileImport(this)">
+        </div>
+        
+        <div style="text-align: center; margin-bottom: 20px;">
+            <div class="month-year" id="monthYear" style="font-size: 2em; font-weight: 700; color: #737373; margin-bottom: 15px;"></div>
+            <div class="calendar-nav" style="display: flex; justify-content: center; gap: 15px;">
+                <button class="nav-btn" onclick="changeMonth(-1)">← חודש קודם</button>
+                <button class="nav-btn" onclick="goToToday()">היום</button>
+                <button class="nav-btn" onclick="changeMonth(1)">חודש הבא →</button>
+            </div>
+        </div>
+        
+        <div class="calendar" id="calendar"></div>
+    </div>
+    
+    <div id="dayModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalDate"></h2>
+            
+            <div class="section">
+                <div class="section-header">
+                    <h3>🎭 איך אני מרגישה עכשיו?</h3>
+                    <button class="reference-btn" onclick="showEmotionsReference()">רשימה מלאה</button>
+                </div>
+                <div class="mood-selector">
+                    <button class="mood-btn" data-mood="😊">😊 שמחה</button>
+                    <button class="mood-btn" data-mood="😌">😌 רוגע</button>
+                    <button class="mood-btn" data-mood="💝">💝 חמלה</button>
+                    <button class="mood-btn" data-mood="😢">😢 עצבות</button>
+                    <button class="mood-btn" data-mood="😰">😰 פחד</button>
+                    <button class="mood-btn" data-mood="😤">😤 עצבנות</button>
+                    <button class="mood-btn" data-mood="😫">😫 עייפות</button>
+                    <button class="mood-btn" data-mood="😕">😕 בלבול</button>
+                    <button class="mood-btn" data-mood="⚡">⚡ חיות</button>
+                    <button class="mood-btn" data-mood="💪">💪 ביטחון</button>
+                </div>
+                <textarea id="feelings" placeholder="מה עובר לי בראש? איך הגוף שלי מרגיש?"></textarea>
+            </div>
+            
+            <div class="section">
+                <h3>💝 הכרת תודה</h3>
+                <p style="margin-bottom: 15px; color: #666;">רשמי שלושה דברים ששימחו, ריגשו או גרמו לך להרגשה טובה. זכרי להודות גם לעצמך!</p>
+                <textarea id="gratitude" placeholder="1. משהו שהיה טוב היום...&#10;2. משהו שאני מעריכה בעצמי...&#10;3. מישהו או משהו שאני אסירת תודה עליו..."></textarea>
+            </div>
+            
+            <div class="section" id="breathingSection">
+                <div class="section-toggle" onclick="toggleSection('breathingSection')">
+                    <h3>🫁 רגע של נשימה</h3>
+                </div>
+                <div class="section-content">
+                    <div class="breathing-exercise">
+                        <div class="breathing-circle" id="breathingCircle">נשימה עמוקה</div>
+                        <button class="nav-btn" onclick="startBreathing()">התחילי תרגיל נשימה</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="support-message" id="supportMessage">
+                💫 "אני ראויה לאהבה ולכבוד - מעצמי ומאחרים"
+            </div>
+            
+            <div class="section analysis-section collapsed" id="cnvcSection">
+                <div class="section-toggle" onclick="toggleSection('cnvcSection')">
+                    <h3>💬 ניתוח סיטואציה – מודל תקשורת מקרבת</h3>
+                </div>
+                <div class="section-content">
+                    <p style="margin-bottom: 20px; color: #666; font-size: 14px;">מודל CNVC (תקשורת מקרבת) לניתוח מצבים רגשיים</p>
+                    
+                    <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                        <h4 style="color: #8cb89c; margin-bottom: 10px;">🔍 תצפית</h4>
+                        <p style="font-size: 13px; color: #666; margin-bottom: 10px;"> תארי את הסיטואציה שקרתה, בלי פרשנות או שיפוט.</p>
+                        <textarea id="observation" placeholder="מה בדיוק קרה? תיאור עובדתי..."></textarea>
+                    </div>
+                    
+                    <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                        <div class="section-header">
+                            <h4 style="color: #8cb89c; margin: 0;">💙 רגש</h4>
+                            <button class="reference-btn" onclick="showEmotionsReference()">רשימת רגשות</button>
+                        </div>
+                        <p style="font-size: 13px; color: #666; margin-bottom: 10px;"> אילו רגשות עולים בך? בחרי מרשימת הרגשות.</p>
+                        <textarea id="feeling" placeholder="אני מרגישה... (כועסת, מוטרדת, מאוכזבת וכו')"></textarea>
+                    </div>
+                    
+                    <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                        <div class="section-header">
+                            <h4 style="color: #8cb89c; margin: 0;">🎯 צורך</h4>
+                            <button class="reference-btn" onclick="showNeedsReference()">רשימת צרכים</button>
+                        </div>
+                        <p style="font-size: 13px; color: #666; margin-bottom: 10px;"> אילו צרכים מסתתרים מאחורי הרגש הזה? בחרי מרשימת הצרכים.</p>
+                        <textarea id="need" placeholder="אני צריכה... (כבוד, הבנה, ביטחון, סדר וכו')"></textarea>
+                    </div>
+                    
+                    <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                        <h4 style="color: #8cb89c; margin-bottom: 10px;">🙏 בקשה</h4>
+                        <p style="font-size: 13px; color: #666; margin-bottom: 10px;"> כתבי בצורה ברורה, ספציפית וחיובית מה את מבקשת. הניסוח צריך להיות שאלה ולא דרישה או אולטימטום.</p>
+                        <textarea id="request" placeholder="האם תוכלי בבקשה...? / האם אפשר...?"></textarea>
+                        <div style="background: #f0f8ff; padding: 10px; border-radius: 8px; margin-top: 10px; font-size: 12px; color: #666;">
+                            <strong>💡 דוגמה:</strong><br>
+                            <em>"כשלקחת את הטלפון שלי בלי לשאול (תצפית) הרגשתי מתוסכלת ומאוכזבת (רגש) כי חשוב לי לקבל התחשבות והסכמה לפני שמשתמשים בדברים שלי (צורך). האם תוכלי בבקשה לשאול אותי מראש לפני שאת משתמשת בטלפון שלי? (בקשה)"</em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section collapsed" id="patternsSection">
+                <div class="section-toggle" onclick="toggleSection('patternsSection')">
+                    <h3>🔍 זיהוי דפוסים רגשיים - תיאוריית זיהוי תבניות</h3>
+                </div>
+                <div class="section-content">
+                    <h4 style="color: #667eea; margin-bottom: 15px;">אני עוצרת רגע לבדוק עם עצמי - האם זה קורה לי שוב?</h4>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px;">איך הגבתי לסיטואציה הזאת?</label>
+                        <textarea id="reaction_response" placeholder="תארי את התגובה שלך..."></textarea>
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px;">האם קרה לי משהו דומה בעבר?</label>
+                        <textarea id="similar_past" placeholder="האם היו מצבים דומים? מה קרה?"></textarea>
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px;">איך אני מרגישה אחרי התגובה שלי?</label>
+                        <textarea id="feelings_after" placeholder="מה אני מרגישה כשאני חושבת על איך הגבתי?"></textarea>
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px;">האם זה השפיע על הקשרים שלי עם אחרים?</label>
+                        <textarea id="impact_relationships" placeholder="איך זה השפיע על הקשרים שלי?"></textarea>
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px;">איך אני חושבת שזה השפיע על אנשים שהיו איתי?</label>
+                        <textarea id="impact_others" placeholder="מה אני חושבת שהם הרגישו?"></textarea>
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px;">מה הייתי רוצה לנסות או לשנות בפעם הבאה?</label>
+                        <textarea id="want_to_change" placeholder="איך הייתי רוצה להגיב בפעם הבאה?"></textarea>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px;">מה הצעד הבא שלי? קטן או גדול – כל צעד חשוב!</label>
+                        <textarea id="next_step" placeholder="איזה צעד אני יכולה לעשות?"></textarea>
+                    </div>
+                    
+                <div style="background: #F0F8F0; padding: 15px; border-radius: 10px; margin-bottom: 15px; text-align: center;">
+                    <p style="color: #8cb89c; font-size: 14px; margin: 0; line-height: 1.6;">
+                        💚 <strong>זכרי שכל שינוי לוקח זמן, הרשי לעצמך לטעות וללמוד בדרך שלך.</strong>
+                    </p>
+                </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px;">חזרי לכאן בהמשך כדי לרשום הצלחות או שינויים שהרגשת מאז שעבדת על המודעות הזו:</label>
+                        <textarea id="follow_up_progress" placeholder="מה השתנה? איך זה הרגיש?"></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="warning-section" style="background: #F9F5E6; border: 2px solid #D4B896; color: #8B7355;">
+                <h4 style="color: #C86F7B; margin-bottom: 10px;">💙 מילים של עידוד ותמיכה</h4>
+                <p style="margin: 0; line-height: 1.6;">
+                    אם את מזהה דפוסים שחוזרים על עצמם או כאב רגשי שלא עובר, זכרי שתמיד אפשר להיעזר באיש מקצוע. 
+                    פנייה למטפל או יועץ היא צעד אמיץ וחזק בדרך שלך להרגיש טוב יותר. 💪
+                </p>
+            </div>
+            
+            <div class="section">
+                <h3>🎯 סימון יום מיוחד</h3>
+                <div class="mood-selector">
+                    <button class="mood-btn" data-special="significant">✨ יום משמעותי</button>
+                    <button class="mood-btn" data-special="review">🔍 יש עוד מה להעמיק</button>
+                </div>
+            </div>
+            
+            <button class="save-btn" onclick="saveEntry()">💾 שמור את הרשימה שלי</button>
+        </div>
+    </div>
+    
+    <script>
+        let currentDate = new Date();
+        let selectedDate = null;
+        let entries = {};
+        let breathingInterval = null;
+        let currentUsername = null;
+        let userPin = null;
+        
+        const supportMessages = [
+            "💫 אני ראויה לאהבה ולכבוד - מעצמי ומאחרים",
+            "🌟 הרגשות שלי תקפים וחשובים",
+            "🌱 אני לומדת ומתפתחת כל יום",
+            "💪 אני חזקה יותר ממה שאני חושבת",
+            "🤗 זה בסדר לא להיות מושלמת",
+            "✨ אני עושה כמיטב יכולתי עם מה שיש לי",
+            "🌈 קשיים הם הזדמנויות לצמיחה",
+            "💝 אני מגלה חמלה כלפי עצמי",
+            "אמונה, מעשים טובים וחכמה הם המפתח לרוגע ושלום פנימי",
+            "הדרך אינה בשמיים, אלא בלב",
+            "הכוח שלך אינו מגיע ממה שקורה לך, אלא מהבחירה שלך כיצד להגיב",
+            "השלווה מגיעה מבפנים, אל תחפשי אותה בחוץ",
+            "אם ברצונך שאחרים יהיו מאושרים, נהגי בחמלה. אם ברצונך שאת תהיי מאושרת, נהגי בחמלה",
+            "דאגה אינה עוזרת. הפני את תשומת לבך מהעתיד אל ההווה",
+            "המקור העיקרי לסבל היא ההרגשה שהדברים אינם כפי שהיית רוצה שיהיו",
+            "אל תיתני לאחרים להכעיס אותך, או לחלופין, לצפות שהם יהיו המקור לאושרך. זו אחריותך שלך להשיג שקט פנימי",
+            "כשאת עוזרת לעצמך את עוזרת לאחרים. הם נהנים מכך שאת שלווה, שמחה, נדיבה ומלאה הערכה על חייך",
+            "כאשר את מרגישה אינטימיות עם אנשים, דברים ומצבים, את נפתחת אליהם ומרגישה יותר קרובה אליהם, אפילו אם דבר לא נאמר",
+            "אל תבססי את הערכתך העצמית על השוואה לאחרים. חיי מעבר לדברי שבח והימנעי מהאשמות",
+            "אם את מרגישה שאת מאבדת את תשומת ליבך עצרי ונשמי נשימות עמוקות",
+            "נסי להודות למישהו כל יום",
+            "עלינו לבלות חלק מהזמן עם עצמנו",
+            "דיבור אוהב והקשבה מלאה הם המפתח לבניית תקשורת",
+            "זהי את הדרכים הרבות בהן אנשים מביעים אהבה בלי לומר זאת",
+            "להביט בעיניים ולתת את מלוא תשומת הלב שלך היא מתנה גדולה",
+            "לתפוס מרחק נפשי מאדם מעליב זה חשוב יותר מאשר לנסות להוכיח את צדקתך",
+            "להעניק תשומת לב היא אחד מביטויי האהבה",
+            "התאמני להקשיב לאחרים, אינך לומדת שום דבר חדש כשאת מדברת",
+            "אם את עושה משהו באותו זמן כל יום, הוא נעשה קל לביצוע וטבעי",
+            "האקט של לשחרר משהו הוא חלק משמעותי מהריתמוס של הטבע, וכמוהו גם הלידה מחדש",
+            "ברגעים שאינך מתבודדת, הקיפי את עצמך באנשים שמתאימים לערכים שלך",
+            "ככל שאנו מבינים טוב יותר את עצמנו כך נבין אחרים",
+            "אני מכבדת את מי שאני",
+            "עבודה, מנוחה ומשחק הם שלושה דברים שתורמים למרקם חייך",
+            "🦋 כל יום הוא הזדמנות חדשה"
+        ];
+        
+        const monthNames = [
+            'ינואר', 'פברואר', 'מרץ', 'אפריל', 'מאי', 'יוני',
+            'יולי', 'אוגוסט', 'ספטמבר', 'אוקטובר', 'נובמבר', 'דצמבר'
+        ];
+        
+        const dayNames = ['א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ש'];
+        
+        // Reference modal functions
+        function showEmotionsReference() {
+            document.getElementById('emotionsModal').style.display = 'block';
+        }
+        
+        function closeEmotionsReference() {
+            document.getElementById('emotionsModal').style.display = 'none';
+        }
+        
+        function showNeedsReference() {
+            document.getElementById('needsModal').style.display = 'block';
+        }
+        
+        function closeNeedsReference() {
+            document.getElementById('needsModal').style.display = 'none';
+        }
+        
+        // Section toggle function
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.classList.toggle('collapsed');
+        }
+        
+        function generateCalendar() {
+            const calendar = document.getElementById('calendar');
+            const monthYear = document.getElementById('monthYear');
+            
+            calendar.innerHTML = '';
+            monthYear.textContent = `${monthNames[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+            
+            // Add day headers
+            dayNames.forEach(day => {
+                const dayHeader = document.createElement('div');
+                dayHeader.className = 'calendar-header';
+                dayHeader.textContent = day;
+                calendar.appendChild(dayHeader);
+            });
+            
+            const firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+            const lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+            const startDate = new Date(firstDay);
+            startDate.setDate(startDate.getDate() - firstDay.getDay());
+            
+            const today = new Date();
+            
+            for (let i = 0; i < 42; i++) {
+                const day = new Date(startDate);
+                day.setDate(startDate.getDate() + i);
+                
+                const dayElement = document.createElement('div');
+                dayElement.className = 'calendar-day';
+                
+                if (day.getMonth() !== currentDate.getMonth()) {
+                    dayElement.classList.add('other-month');
+                }
+                
+                if (day.toDateString() === today.toDateString()) {
+                    dayElement.classList.add('today');
+                }
+                
+                // Fixed date key generation
+                const year = day.getFullYear();
+                const month = String(day.getMonth() + 1).padStart(2, '0');
+                const dayNum = String(day.getDate()).padStart(2, '0');
+                const dateKey = `${year}-${month}-${dayNum}`;
+                if (entries[dateKey]) {
+                    // Check if there's actual content in the entry
+                    const entry = entries[dateKey];
+                    const hasContent = entry.feelings || entry.gratitude || entry.observation || 
+                                     entry.feeling || entry.need || entry.request || 
+                                     entry.reaction_response || entry.similar_past || 
+                                     entry.feelings_after || entry.impact_relationships || 
+                                     entry.impact_others || entry.want_to_change || 
+                                     entry.next_step || entry.follow_up_progress || 
+                                     entry.selectedMood;
+                    
+                    if (hasContent) {
+                        dayElement.classList.add('has-entry');
+                    }
+                    
+                    // Add special day icon if exists (without changing color)
+                    if (entry.specialDay === 'significant') {
+                        const specialIcon = document.createElement('div');
+                        specialIcon.className = 'day-special-icon';
+                        specialIcon.textContent = '✨';
+                        dayElement.appendChild(specialIcon);
+                    } else if (entry.specialDay === 'review') {
+                        const specialIcon = document.createElement('div');
+                        specialIcon.className = 'day-special-icon';
+                        specialIcon.textContent = '🔍';
+                        dayElement.appendChild(specialIcon);
+                    }
+                }
+                
+                const dayNumber = document.createElement('div');
+                dayNumber.className = 'day-number';
+                dayNumber.textContent = day.getDate();
+                
+                dayElement.appendChild(dayNumber);
+                
+                dayElement.addEventListener('click', () => openDay(day));
+                calendar.appendChild(dayElement);
+            }
+        }
+        
+        function changeMonth(direction) {
+            currentDate.setMonth(currentDate.getMonth() + direction);
+            generateCalendar();
+        }
+        
+        function goToToday() {
+            currentDate = new Date();
+            generateCalendar();
+        }
+        
+        function openDay(date) {
+            selectedDate = date;
+            const modal = document.getElementById('dayModal');
+            const modalDate = document.getElementById('modalDate');
+            
+            modalDate.textContent = `📅 ${date.getDate()} ${monthNames[date.getMonth()]} ${date.getFullYear()}`;
+            
+            // Load existing entry if exists - Fixed date key generation
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const dateKey = `${year}-${month}-${day}`;
+            const entry = entries[dateKey] || {};
+            
+            // Load existing entry values safely
+            const feelingsEl = document.getElementById('feelings');
+            const gratitudeEl = document.getElementById('gratitude');
+            const observationEl = document.getElementById('observation');
+            const feelingEl = document.getElementById('feeling');
+            const needEl = document.getElementById('need');
+            const requestEl = document.getElementById('request');
+            
+            // Pattern analysis fields
+            const reactionResponseEl = document.getElementById('reaction_response');
+            const similarPastEl = document.getElementById('similar_past');
+            const feelingsAfterEl = document.getElementById('feelings_after');
+            const impactRelationshipsEl = document.getElementById('impact_relationships');
+            const impactOthersEl = document.getElementById('impact_others');
+            const wantToChangeEl = document.getElementById('want_to_change');
+            const nextStepEl = document.getElementById('next_step');
+            const followUpProgressEl = document.getElementById('follow_up_progress');
+            
+            if (feelingsEl) feelingsEl.value = entry.feelings || '';
+            if (gratitudeEl) gratitudeEl.value = entry.gratitude || '';
+            if (observationEl) observationEl.value = entry.observation || '';
+            if (feelingEl) feelingEl.value = entry.feeling || '';
+            if (needEl) needEl.value = entry.need || '';
+            if (requestEl) requestEl.value = entry.request || '';
+            
+            // Load pattern analysis fields
+            if (reactionResponseEl) reactionResponseEl.value = entry.reaction_response || '';
+            if (similarPastEl) similarPastEl.value = entry.similar_past || '';
+            if (feelingsAfterEl) feelingsAfterEl.value = entry.feelings_after || '';
+            if (impactRelationshipsEl) impactRelationshipsEl.value = entry.impact_relationships || '';
+            if (impactOthersEl) impactOthersEl.value = entry.impact_others || '';
+            if (wantToChangeEl) wantToChangeEl.value = entry.want_to_change || '';
+            if (nextStepEl) nextStepEl.value = entry.next_step || '';
+            if (followUpProgressEl) followUpProgressEl.value = entry.follow_up_progress || '';
+            
+            // Reset mood and special day selection
+            document.querySelectorAll('.mood-btn').forEach(btn => {
+                btn.classList.remove('selected');
+                if (entry.selectedMood && btn.dataset.mood === entry.selectedMood) {
+                    btn.classList.add('selected');
+                }
+                if (btn.dataset.special && entry.specialDay === btn.dataset.special) {
+                    btn.classList.add('selected');
+                }
+            });
+            
+            // Show random support message
+            const supportMessage = document.getElementById('supportMessage');
+            const randomMessage = supportMessages[Math.floor(Math.random() * supportMessages.length)];
+            supportMessage.textContent = randomMessage;
+            
+            // Set initial collapsed state for sections
+            const breathingSection = document.getElementById('breathingSection');
+            const cnvcSection = document.getElementById('cnvcSection');
+            const patternsSection = document.getElementById('patternsSection');
+            
+            if (breathingSection) breathingSection.classList.add('collapsed');
+            if (cnvcSection) cnvcSection.classList.add('collapsed');
+            if (patternsSection) patternsSection.classList.add('collapsed');
+            
+            modal.style.display = 'block';
+        }
+        
+        function closeModal() {
+            document.getElementById('dayModal').style.display = 'none';
+            if (breathingInterval) {
+                clearInterval(breathingInterval);
+                breathingInterval = null;
+            }
+        }
+        
+        function saveEntry() {
+            if (!selectedDate) return;
+            
+            // Fixed date key generation
+            const year = selectedDate.getFullYear();
+            const month = String(selectedDate.getMonth() + 1).padStart(2, '0');
+            const day = String(selectedDate.getDate()).padStart(2, '0');
+            const dateKey = `${year}-${month}-${day}`;
+            const selectedMoodBtn = document.querySelector('.mood-btn[data-mood].selected');
+            const selectedSpecialBtn = document.querySelector('.mood-btn[data-special].selected');
+            
+            // Get values safely
+            const feelingsEl = document.getElementById('feelings');
+            const gratitudeEl = document.getElementById('gratitude');
+            const observationEl = document.getElementById('observation');
+            const feelingEl = document.getElementById('feeling');
+            const needEl = document.getElementById('need');
+            const requestEl = document.getElementById('request');
+            
+            // Pattern analysis fields
+            const reactionResponseEl = document.getElementById('reaction_response');
+            const similarPastEl = document.getElementById('similar_past');
+            const feelingsAfterEl = document.getElementById('feelings_after');
+            const impactRelationshipsEl = document.getElementById('impact_relationships');
+            const impactOthersEl = document.getElementById('impact_others');
+            const wantToChangeEl = document.getElementById('want_to_change');
+            const nextStepEl = document.getElementById('next_step');
+            const followUpProgressEl = document.getElementById('follow_up_progress');
+            
+            // Check if there's any content
+            const hasContent = 
+                (feelingsEl && feelingsEl.value) ||
+                (gratitudeEl && gratitudeEl.value) ||
+                (observationEl && observationEl.value) ||
+                (feelingEl && feelingEl.value) ||
+                (needEl && needEl.value) ||
+                (requestEl && requestEl.value) ||
+                (reactionResponseEl && reactionResponseEl.value) ||
+                (similarPastEl && similarPastEl.value) ||
+                (feelingsAfterEl && feelingsAfterEl.value) ||
+                (impactRelationshipsEl && impactRelationshipsEl.value) ||
+                (impactOthersEl && impactOthersEl.value) ||
+                (wantToChangeEl && wantToChangeEl.value) ||
+                (nextStepEl && nextStepEl.value) ||
+                (followUpProgressEl && followUpProgressEl.value) ||
+                selectedMoodBtn ||
+                selectedSpecialBtn;
+            
+            if (!hasContent) {
+                // If no content, delete the entry
+                delete entries[dateKey];
+            } else {
+                // Save the entry
+                entries[dateKey] = {
+                    feelings: feelingsEl ? feelingsEl.value : '',
+                    gratitude: gratitudeEl ? gratitudeEl.value : '',
+                    observation: observationEl ? observationEl.value : '',
+                    feeling: feelingEl ? feelingEl.value : '',
+                    need: needEl ? needEl.value : '',
+                    request: requestEl ? requestEl.value : '',
+                    reaction_response: reactionResponseEl ? reactionResponseEl.value : '',
+                    similar_past: similarPastEl ? similarPastEl.value : '',
+                    feelings_after: feelingsAfterEl ? feelingsAfterEl.value : '',
+                    impact_relationships: impactRelationshipsEl ? impactRelationshipsEl.value : '',
+                    impact_others: impactOthersEl ? impactOthersEl.value : '',
+                    want_to_change: wantToChangeEl ? wantToChangeEl.value : '',
+                    next_step: nextStepEl ? nextStepEl.value : '',
+                    follow_up_progress: followUpProgressEl ? followUpProgressEl.value : '',
+                    selectedMood: selectedMoodBtn ? selectedMoodBtn.dataset.mood : null,
+                    specialDay: selectedSpecialBtn ? selectedSpecialBtn.dataset.special : null,
+                    savedAt: new Date().toLocaleDateString('he-IL') + ' ' + new Date().toLocaleTimeString('he-IL')
+                };
+            }
+            
+            // Store in user-specific localStorage key
+            if (!safeSetItem(getUserDataKey(), JSON.stringify(entries))) {
+                console.log('Note: Data will only be saved for this session');
+            }
+            
+            generateCalendar();
+            closeModal();
+            
+            if (hasContent) {
+                alert('✅ הרשומה נשמרה בהצלחה!');
+            } else {
+                alert('✅ הרשומה נמחקה (לא היה תוכן)');
+            }
+        }
+        
+        function startBreathing() {
+            const circle = document.getElementById('breathingCircle');
+            const button = event.target;
+            let isInhaling = true;
+            let cycleCount = 0;
+            const totalCycles = 5;
+            
+            if (breathingInterval) {
+                clearInterval(breathingInterval);
+                breathingInterval = null;
+                circle.textContent = 'נשימה עמוקה';
+                circle.className = 'breathing-circle';
+                button.textContent = 'התחילי תרגיל נשימה';
+                return;
+            }
+            
+            button.textContent = 'עצור תרגיל';
+            circle.textContent = 'התכונן...';
+            
+            setTimeout(() => {
+                breathingInterval = setInterval(() => {
+                    if (isInhaling) {
+                        circle.textContent = `שאף עמוק... (${cycleCount + 1}/${totalCycles})`;
+                        circle.classList.add('inhale');
+                        circle.classList.remove('exhale');
+                    } else {
+                        circle.textContent = `נשף לאט... (${cycleCount + 1}/${totalCycles})`;
+                        circle.classList.add('exhale');
+                        circle.classList.remove('inhale');
+                        cycleCount++;
+                    }
+                    
+                    if (cycleCount >= totalCycles && !isInhaling) {
+                        clearInterval(breathingInterval);
+                        breathingInterval = null;
+                        circle.textContent = '✨ כל הכבוד! איך את מרגישה?';
+                        circle.className = 'breathing-circle';
+                        button.textContent = 'התחל תרגיל נשימה';
+                        return;
+                    }
+                    
+                    isInhaling = !isInhaling;
+                }, 4000);
+            }, 1000);
+        }
+        
+        // Safe localStorage wrapper functions
+        function safeGetItem(key) {
+            try {
+                return localStorage ? localStorage.getItem(key) : null;
+            } catch(e) {
+                return null;
+            }
+        }
+        
+        function safeSetItem(key, value) {
+            try {
+                if (localStorage) {
+                    localStorage.setItem(key, value);
+                    return true;
+                }
+            } catch(e) {}
+            return false;
+        }
+        
+        // User Management Functions
+        function login() {
+            const username = document.getElementById('usernameInput').value.trim();
+            const pin = document.getElementById('pinInput').value.trim();
+            
+            if (!username) {
+                alert('אנא הכניסי שם משתמש');
+                return;
+            }
+            
+            if (pin && (pin.length < 4 || pin.length > 8 || !/^\d+$/.test(pin))) {
+                alert('סיסמא חייבת להיות 4-8 ספרות בלבד');
+                return;
+            }
+            
+            // Check if user already exists with a PIN
+            const existingPin = safeGetItem(`pin_${username}`);
+            if (existingPin && !pin) {
+                // User has a PIN but didn't enter it - go to PIN screen
+                document.getElementById('pinUsername').textContent = username;
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('pinScreen').style.display = 'block';
+                return;
+            } else if (existingPin && pin) {
+                // User has PIN and entered one - verify
+                if (pin !== existingPin) {
+                    alert('❌ סיסמא שגויה');
+                    return;
+                }
+            } else if (pin) {
+                // New user setting a PIN
+                safeSetItem(`pin_${username}`, pin);
+            }
+            
+            proceedToMainApp(username);
+        }
+        
+        function verifyPin() {
+            const username = document.getElementById('pinUsername').textContent;
+            const enteredPin = document.getElementById('pinVerification').value.trim();
+            const correctPin = safeGetItem(`pin_${username}`);
+            
+            if (enteredPin === correctPin) {
+                proceedToMainApp(username);
+            } else {
+                alert('❌ סיסמא שגויה');
+                document.getElementById('pinVerification').value = '';
+            }
+        }
+        
+        function backToLogin() {
+            document.getElementById('pinScreen').style.display = 'none';
+            document.getElementById('loginScreen').style.display = 'block';
+            document.getElementById('pinVerification').value = '';
+        }
+        
+        function proceedToMainApp(username) {
+            currentUsername = username;
+            document.getElementById('currentUser').textContent = username;
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('pinScreen').style.display = 'none';
+            document.getElementById('mainApp').style.display = 'block';
+            
+            // Save last username for convenience
+            safeSetItem('lastUsername', username);
+            
+            loadUserData();
+            generateCalendar();
+        }
+        
+        // Data Backup and Restore Functions
+        function exportData() {
+            if (!currentUsername) {
+                alert('אנא היכנסי למערכת תחילה');
+                return;
+            }
+            
+            const dataToExport = {
+                username: currentUsername,
+                exportDate: new Date().toLocaleDateString('he-IL'),
+                entries: entries
+            };
+            
+            const dataStr = JSON.stringify(dataToExport, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(dataBlob);
+            const today = new Date();
+            const dateStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+            link.download = `גיבוי-יומן-רגשי-${currentUsername}-${dateStr}.json`;
+            
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            alert('✅ הקובץ הורד בהצלחה! \n\n💡 טיפ: שמרי את הקובץ בגוגל דרייב, דרופבוקס או כל שירות ענן אחר כדי לגבות אותו.');
+        }
+        
+        function importData() {
+            if (!currentUsername) {
+                alert('אנא היכנסי למערכת תחילה');
+                return;
+            }
+            
+            document.getElementById('fileInput').click();
+        }
+        
+        function handleFileImport(input) {
+            const file = input.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const importedData = JSON.parse(e.target.result);
+                    
+                    if (!importedData.entries) {
+                        alert('❌ הקובץ לא תקין');
+                        return;
+                    }
+                    
+                    if (confirm(`📥 האם את רוצה לשחזר את הנתונים מ-${importedData.exportDate || 'גיבוי קודם'}?\n\n⚠️ זה ימחק את הנתונים הנוכחיים של ${currentUsername}`)) {
+                        entries = importedData.entries;
+                        
+                        // Save to localStorage
+                        if (!safeSetItem(getUserDataKey(), JSON.stringify(entries))) {
+                            console.log('Could not save to localStorage');
+                        }
+                        
+                        generateCalendar();
+                        alert('✅ הנתונים שוחזרו בהצלחה!');
+                    }
+                } catch (error) {
+                    alert('❌ שגיאה בקריאת הקובץ. אנא ודאי שזה קובץ גיבוי תקין.');
+                }
+            };
+            
+            reader.readAsText(file);
+            input.value = ''; // Reset input
+        }
+        
+        // Export to Excel function
+        function exportToExcel() {
+            if (!currentUsername) {
+                alert('אנא היכנסי למערכת תחילה');
+                return;
+            }
+            
+            if (Object.keys(entries).length === 0) {
+                alert('אין נתונים לייצוא');
+                return;
+            }
+            
+            // Mood mapping for Excel export
+            const moodMapping = {
+                '😊': 'שמחה',
+                '😌': 'רוגע', 
+                '💝': 'חמלה',
+                '😢': 'עצבות',
+                '😰': 'פחד',
+                '😤': 'עצבנות',
+                '😫': 'עייפות',
+                '😕': 'בלבול',
+                '⚡': 'חיות',
+                '💪': 'ביטחון'
+            };
+            
+            let csvContent = "תאריך,מצב רוח,רגשות ומחשבות,הכרת תודה,תצפית,רגש,צורך,בקשה,איך הגבתי,משהו דומה בעבר,הרגשה אחרי,השפעה על קשרים,השפעה על אחרים,מה לשנות,הצעד הבא,מעקב התקדמות,סימון מיוחד\n";
+            
+            Object.keys(entries).sort().forEach(dateKey => {
+                const entry = entries[dateKey];
+                // Create a date object and format it correctly without timezone issues
+                const dateObj = new Date(dateKey + 'T12:00:00');
+                const day = String(dateObj.getDate()).padStart(2, '0');
+                const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+                const year = dateObj.getFullYear();
+                const date = `${day}/${month}/${year}`;
+                const mood = moodMapping[entry.selectedMood] || entry.selectedMood || '';
+                const feelings = (entry.feelings || '').replace(/"/g, '""').replace(/\n/g, ' ');
+                const gratitude = (entry.gratitude || '').replace(/"/g, '""').replace(/\n/g, ' ');
+                const observation = (entry.observation || '').replace(/"/g, '""').replace(/\n/g, ' ');
+                const feeling = (entry.feeling || '').replace(/"/g, '""').replace(/\n/g, ' ');
+                const need = (entry.need || '').replace(/"/g, '""').replace(/\n/g, ' ');
+                const request = (entry.request || '').replace(/"/g, '""').replace(/\n/g, ' ');
+                
+                // Pattern analysis fields
+                const reactionResponse = (entry.reaction_response || '').replace(/"/g, '""').replace(/\n/g, ' ');
+                const similarPast = (entry.similar_past || '').replace(/"/g, '""').replace(/\n/g, ' ');
+                const feelingsAfter = (entry.feelings_after || '').replace(/"/g, '""').replace(/\n/g, ' ');
+                const impactRelationships = (entry.impact_relationships || '').replace(/"/g, '""').replace(/\n/g, ' ');
+                const impactOthers = (entry.impact_others || '').replace(/"/g, '""').replace(/\n/g, ' ');
+                const wantToChange = (entry.want_to_change || '').replace(/"/g, '""').replace(/\n/g, ' ');
+                const nextStep = (entry.next_step || '').replace(/"/g, '""').replace(/\n/g, ' ');
+                const followUpProgress = (entry.follow_up_progress || '').replace(/"/g, '""').replace(/\n/g, ' ');
+                
+                let specialMark = '';
+                if (entry.specialDay === 'significant') specialMark = 'יום משמעותי במסע';
+                else if (entry.specialDay === 'review') specialMark = 'יש עוד מה להעמיק';
+                
+                csvContent += `"${date}","${mood}","${feelings}","${gratitude}","${observation}","${feeling}","${need}","${request}","${reactionResponse}","${similarPast}","${feelingsAfter}","${impactRelationships}","${impactOthers}","${wantToChange}","${nextStep}","${followUpProgress}","${specialMark}"\n`;
+            });
+            
+            const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            const today = new Date();
+            const dateStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+            link.download = `יומן-רגשי-${currentUsername}-${dateStr}.csv`;
+            
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            alert('✅ הקובץ אקסל הורד בהצלחה! \n\n💡 פתחי אותו באקסל או בגוגל שיטס לצפייה ועיבוד הנתונים.');
+        }
+        
+        // Help functions
+        function showHelp() {
+            document.getElementById('helpModal').style.display = 'block';
+        }
+        
+        function closeHelp() {
+            document.getElementById('helpModal').style.display = 'none';
+        }
+        
+        function getUserDataKey() {
+            return `emotionalCalendar_${currentUsername}`;
+        }
+        
+        // Load user-specific data from localStorage
+        function loadUserData() {
+            const savedData = safeGetItem(getUserDataKey());
+            if (savedData) {
+                try {
+                    entries = JSON.parse(savedData);
+                } catch(e) {
+                    console.log('Error parsing saved data, starting fresh');
+                    entries = {};
+                }
+            } else {
+                entries = {};
+            }
+        }
+        
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if there's a saved user
+            const savedUsername = safeGetItem('lastUsername');
+            if (savedUsername) {
+                document.getElementById('usernameInput').value = savedUsername;
+            }
+            
+            // Set up mood and special day selection
+            document.querySelectorAll('.mood-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Handle mood selection
+                    if (this.dataset.mood) {
+                        if (this.classList.contains('selected')) {
+                            // If already selected, deselect
+                            this.classList.remove('selected');
+                        } else {
+                            // Otherwise select this and deselect others
+                            document.querySelectorAll('.mood-btn[data-mood]').forEach(b => b.classList.remove('selected'));
+                            this.classList.add('selected');
+                        }
+                    }
+                    // Handle special day selection
+                    if (this.dataset.special) {
+                        if (this.classList.contains('selected')) {
+                            // If already selected, deselect
+                            this.classList.remove('selected');
+                        } else {
+                            // Otherwise select this and deselect others
+                            document.querySelectorAll('.mood-btn[data-special]').forEach(b => b.classList.remove('selected'));
+                            this.classList.add('selected');
+                        }
+                    }
+                });
+            });
+            
+            // Allow Enter key in inputs
+            document.getElementById('usernameInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    login();
+                }
+            });
+            
+            document.getElementById('pinInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    login();
+                }
+            });
+            
+            const pinVerificationEl = document.getElementById('pinVerification');
+            if (pinVerificationEl) {
+                pinVerificationEl.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        verifyPin();
+                    }
+                });
+                
+                pinVerificationEl.addEventListener('input', function(e) {
+                    this.value = this.value.replace(/[^0-9]/g, '');
+                });
+            }
+            
+            // Only allow numbers in PIN fields
+            document.getElementById('pinInput').addEventListener('input', function(e) {
+                this.value = this.value.replace(/[^0-9]/g, '');
+            });
+        });
+        
+        // Define logout function globally
+        window.logout = function() {
+            if (confirm('האם את בטוחה שברצונך להתנתק?')) {
+                currentUsername = null;
+                entries = {};
+                document.getElementById('mainApp').style.display = 'none';
+                document.getElementById('loginScreen').style.display = 'block';
+                document.getElementById('usernameInput').value = '';
+                document.getElementById('pinInput').value = '';
+                const pinVerificationEl = document.getElementById('pinVerification');
+                if (pinVerificationEl) {
+                    pinVerificationEl.value = '';
+                }
+            }
+        }
+        
+        // Close modals when clicking outside
+        window.addEventListener('click', function(event) {
+            const dayModal = document.getElementById('dayModal');
+            const helpModal = document.getElementById('helpModal');
+            const emotionsModal = document.getElementById('emotionsModal');
+            const needsModal = document.getElementById('needsModal');
+            
+            if (event.target === dayModal) {
+                closeModal();
+            }
+            if (event.target === helpModal) {
+                closeHelp();
+            }
+            if (event.target === emotionsModal) {
+                closeEmotionsReference();
+            }
+            if (event.target === needsModal) {
+                closeNeedsReference();
+            }
+        });
+    </script>
+</body>
+</html>
