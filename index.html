@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>אל עצמי</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="description" content="אפליקציה לניהול רגשי יומיומי ומדיטציות">
+    <meta name="theme-color" content="#8cb89c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="אל עצמי">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <!-- PWA Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="el_eztmi_logo_optimized.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="el_eztmi_logo_optimized.png">
+    <link rel="apple-touch-icon" href="el_eztmi_logo_optimized.png">
+    <link rel="manifest" href="manifest.json">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Assistant:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700&family=Heebo:wght@300;400;500;600;700&family=Varela+Round&display=swap');
         
@@ -65,7 +79,7 @@
             border: none;
             padding: 12px 4px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 19px;
             font-weight: 500;
             transition: all 0.3s ease;
         }
@@ -81,7 +95,7 @@
             background: #D4B896;
             border-radius: 15px;
             overflow: hidden;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
         }
         
         .calendar-header {
@@ -290,7 +304,7 @@
             padding: 8px 15px;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 13px;
+            font-size: 16px;
             margin-right: 10px;
             transition: all 0.3s ease;
         }
@@ -328,7 +342,7 @@
             padding: 15px;
             border: 2px solid #e2e8f0;
             border-radius: 10px;
-            font-size: 16px;
+            font-size: 19px;
             font-family: inherit;
             resize: vertical;
             min-height: 100px;
@@ -453,7 +467,7 @@
         
         /* Remember Me Checkbox Styling */
         .remember-me-box {
-            margin: 3px 0;
+            margin: 1px 0;
             text-align: center;
         }
         
@@ -484,29 +498,29 @@
         /* Google Sign-In Button Centering */
         .google-signin-btn {
             display: block;
-            margin: 0 auto 4px auto;
+            margin: 0 auto 1px auto;
         }
         
         /* Reduce spacing between login cards */
         .login-card {
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
         
         .login-card--google {
-            margin-bottom: 6px;
+            margin-bottom: 3px;
         }
         
         .login-card--local {
-            margin-top: 6px;
+            margin-top: 3px;
         }
         
         /* Reduce spacing within login cards */
         .login-card h3 {
-            margin-bottom: 6px;
+            margin-bottom: 3px;
         }
         
         .login-card p {
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
         
         .help-modal {
@@ -838,29 +852,33 @@
         
         .favorite-circle {
             cursor: pointer;
-            font-size: 22px;
-            margin-left: 10px;
-            color: #8cb89c;
+            margin-left: 15px;
             transition: all 0.3s ease;
             user-select: none;
-            border: 2px solid #8cb89c;
-            border-radius: 50%;
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: rgba(140, 184, 156, 0.1);
-        }
-        
-        .favorite-circle.filled {
-            color: #ffffff;
-            background: #8cb89c;
-            border-color: #8cb89c;
+            position: relative;
+            background: transparent;
+            font-size: 26px;
+            color: #8cb89c;
+            font-weight: 610;
+            line-height: 1;
+            vertical-align: middle;
+            text-align: center;
+            flex-shrink: 0;
         }
         
         .meditations-link:hover .favorite-circle {
             transform: scale(1.1);
+        }
+        
+        /* Ensure stars are aligned */
+        .meditations-link {
+            text-align: right;
+            flex: 1;
         }
         
         .filter-favorites-btn {
@@ -870,7 +888,7 @@
             padding: 8px 16px;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 17px;
             transition: all 0.3s ease;
         }
         
@@ -881,6 +899,40 @@
         
         .filter-favorites-btn.active {
             background: #68a27d;
+        }
+        
+        /* Emotions Modal Text Sizing */
+        #emotionsModal h2 {
+            font-size: calc(1.4em + 0.5px);
+        }
+        
+        #emotionsModal h3 {
+            font-size: calc(1.2em + 0.5px);
+        }
+        
+        #emotionsModal p {
+            font-size: calc(16px + 0.5px);
+        }
+        
+        #emotionsModal strong {
+            font-size: calc(16px + 0.5px);
+        }
+        
+        /* Needs Modal Text Sizing */
+        #needsModal h2 {
+            font-size: calc(1.4em + 0.5px);
+        }
+        
+        #needsModal h3 {
+            font-size: calc(1.2em + 0.5px);
+        }
+        
+        #needsModal p {
+            font-size: calc(16px + 0.5px);
+        }
+        
+        #needsModal strong {
+            font-size: calc(16px + 0.5px);
         }
         
         .meditations-link-container {
@@ -931,7 +983,7 @@
         .login-card--google p,
         .login-card--local p {
             color: #6b7280;
-            font-size: 13px;
+            font-size: 14px;
             margin-bottom: 10px;
         }
         .login-card--local { border-color: #cfe0d6; }
@@ -946,7 +998,7 @@
             background: #d4e5da;
             border-radius: 10px;
             padding: 14px;
-            font-size: 13px;
+            font-size: 14px;
             color: #4b5563;
             margin-top: 10px;
         }
@@ -958,7 +1010,7 @@
             text-align: center;
             color: #6b7280;
             font-weight: 700;
-            font-size: 16px;
+            font-size: 19px;
             margin-top: 10px;   /* 10px under the greeting */
             margin-bottom: 35px; /* 35px above the month title */
         }
@@ -1000,11 +1052,22 @@
             }
             
             .favorite-circle {
-                font-size: 24px;
-                width: 32px;
-                height: 32px;
-                border-width: 3px;
-                margin-left: 12px;
+                font-size: 30px;
+                width: 36px;
+                height: 36px;
+                margin-left: 15px;
+                min-width: 36px;
+            }
+        }
+        
+        /* Extra small screens */
+        @media (max-width: 480px) {
+            .favorite-circle {
+                font-size: 34px;
+                width: 40px;
+                height: 40px;
+                margin-left: 20px;
+                min-width: 40px;
             }
         }
 
@@ -1119,7 +1182,7 @@
             padding: 12px 24px;
             border-radius: 10px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 16.5px;
             font-weight: 500;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(152, 191, 166, 0.3);
@@ -1138,7 +1201,7 @@
         .meditation-link {
             color: #6b46c1;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 17px;
             padding: 8px 12px;
             margin: 4px 0;
             display: block;
@@ -1164,7 +1227,7 @@
         .meditation-category h3 {
             color: #6b46c1;
             margin-bottom: 15px;
-            font-size: 1.2em;
+            font-size: 1.3em;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -1198,7 +1261,7 @@
             <img id="logoImage" 
                  src="logo.png" 
                  alt="אל עצמי - מסע של הקשבה והתרחבות הלב" 
-                 style="max-width: 350px; width: 80%; height: auto; margin: 20px auto 30px; display: block;"
+                 style="max-width: 350px; width: 80%; height: auto; margin: 20px auto 10px; display: block;"
                  onerror="this.style.display='none'; document.getElementById('fallbackTitle').style.display='block';">
             <div id="fallbackTitle" style="display: none;">
                 <p>מסע של הקשבה והתרחבות הלב</p>
@@ -1206,11 +1269,11 @@
         </div>
         
         <div style="max-width: 520px; margin: 0 auto; text-align: center;">
-            <div class="welcome-title" style="margin-bottom: 8px;">ברוכה הבאה 🌸</div>
-            <div class="login-title" style="margin-bottom: 15px;">איך תרצי להתחבר כדי לצאת למסע שלך?</div>
+            <div class="welcome-title" style="margin-bottom: 4px;">ברוכה הבאה 🌸</div>
+            <div class="login-title" style="margin-bottom: 8px;">איך תרצי להתחבר כדי לצאת למסע שלך?</div>
                         <div class="login-card login-card--google">
-                <h3 style="margin-bottom: 4px;">(מומלץ) התחברות עם Google</h3>
-                <p style="margin-bottom: 6px;">הנתונים שלך נשמרים בענן וזמינים מכל מכשיר</p>
+                <h3 style="margin-bottom: 3px;">(מומלץ) התחברות עם Google</h3>
+                <p style="margin-bottom: 4px;">הנתונים שלך נשמרים בענן וזמינים מכל מכשיר</p>
                 <button id="googleFallbackBtn" class="google-signin-btn" onclick="handleGoogleSignIn()">
                     <svg class="google-icon" viewBox="0 0 24 24">
                         <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -1227,21 +1290,20 @@
                         <input type="checkbox" id="rememberMeGoogleCheckbox">
                         <span>השאר אותי מחוברת</span>
                     </label>
-                    <p>תישארי מחוברת גם אחרי סגירת הדפדפן</p>
                 </div>
                 
-                <p style="font-size: 12px; color: #666; margin-top: 2px;">הנתונים ייקשרו לחשבון ה‑Google שלך</p>
+                <p style="font-size: 15px; color: #666; margin-top: 0px;">הנתונים ייקשרו לחשבון ה‑Google שלך</p>
             </div>
             <div class="login-card login-card--local">
-                <h3 style="margin-bottom: 4px;">שימוש מקומי בלבד</h3>
-                <p style="margin-bottom: 6px;">הנתונים יישמרו רק במכשיר הזה</p>
+                <h3 style="margin-bottom: 3px;">שימוש מקומי בלבד</h3>
+                <p style="margin-bottom: 4px;">הנתונים יישמרו רק במכשיר הזה</p>
                 <div class="section" style="background: white; border: none; padding: 0;">
                     <input type="text" id="usernameInput" placeholder="...השם שלי" style="min-height: 50px; text-align: center; font-size: 18px;">
                 </div>
                 <div class="pin-box">
                     <h4 style="margin: 0 0 8px 0; color:#6b7280;">🔐 הגנה עם סיסמא (אופציונלי)</h4>
                     <input type="password" id="pinInput" class="pin-input" placeholder="****" maxlength="8" pattern="[0-9]{4,8}" style="margin: 6px auto; display:block;">
-                    <p style="font-size: 12px; color: #666; text-align:center; margin: 4px 0 0 0;">השאירי ריק אם את לא רוצה סיסמא</p>
+                    <p style="font-size: 15px; color: #666; text-align:center; margin: 4px 0 0 0;">השאירי ריק אם את לא רוצה סיסמא</p>
                 </div>
                 
                 <!-- Remember Me Checkbox -->
@@ -1250,7 +1312,6 @@
                         <input type="checkbox" id="rememberMeCheckbox">
                         <span>השאר אותי מחוברת</span>
                     </label>
-                    <p>תישארי מחוברת גם אחרי סגירת הדפדפן</p>
                 </div>
                 
                 <button class="save-btn" onclick="login()" style="margin-top: 4px;">התחלי ללא סנכרון ✍️</button>
@@ -1309,7 +1370,7 @@
         <div class="reference-content">
             <span class="close" onclick="closeMeditationsLibrary()" style="position: absolute; top: 15px; left: 25px;">×</span>
             <h2 style="margin-bottom: 15px; color: #4a5568;">🎧 אוסף מדיטציות</h2>
-            <div style="text-align: right; line-height: 1.8; padding: 20px; background: #f9f9f9; border-radius: 15px; max-height: 70vh; overflow-y: auto;">
+            <div style="text-align: right; line-height: 1.8; padding: 15px; background: #f9f9f9; border-radius: 15px; max-height: 70vh; overflow-y: auto;">
                 
                 <!-- שחרור לחץ וחרדה -->
                 <div class="meditation-category">
@@ -1453,7 +1514,7 @@
             </div>
             <div class="meditations-panel-body">
                 
-                <p style="margin: 0 0 15px 0; color: #718096; font-size: 14px; text-align: center;">בחרי המדיטציות שתרצי לחזור אליהן והוסיפי למועדפים</p>
+                <p style="margin: 0 0 15px 0; color: #718096; font-size: 16px; text-align: center;">בחרי המדיטציות שתרצי לחזור אליהן והוסיפי למועדפים</p>
                 
                 <!-- שחרור לחץ וחרדה -->
                 <div class="meditations-category">
@@ -1462,37 +1523,37 @@
                         <a class="meditations-link" href="https://www.meditationlibrary.net/הפסקת-מדיטציה-בחמש-דקות/" target="_blank">
                             <span>הפסקת מדיטציה לשחרור מידי מלחץ</span>
                         </a>
-                        <span class="favorite-circle" onclick="toggleFavorite(this, 'הפסקת מדיטציה לשחרור מידי מלחץ', event)">○</span>
+                        <span class="favorite-circle" onclick="toggleFavorite(this, 'הפסקת מדיטציה לשחרור מידי מלחץ', event)"></span>
                     </div>
                     <div class="meditations-link-container">
                         <a class="meditations-link" href="https://youtu.be/GjbQKAyVgeo" target="_blank">
                             <span>הרפיית שרירים הדרגתית</span>
                         </a>
-                        <span class="favorite-circle" onclick="toggleFavorite(this, 'הרפיית שרירים הדרגתית', event)">○</span>
+                        <span class="favorite-circle" onclick="toggleFavorite(this, 'הרפיית שרירים הדרגתית', event)"></span>
                     </div>
                     <div class="meditations-link-container">
                         <a class="meditations-link" href="https://www.meditationlibrary.net/דמיון-מודרך-לשחרור-רגשות-שליליים/" target="_blank">
                             <span>מדיטציה בדמיון מודרך לשחרור רגשות שליליים</span>
                         </a>
-                        <span class="favorite-circle" onclick="toggleFavorite(this, 'מדיטציה בדמיון מודרך לשחרור רגשות שליליים', event)">○</span>
+                        <span class="favorite-circle" onclick="toggleFavorite(this, 'מדיטציה בדמיון מודרך לשחרור רגשות שליליים', event)"></span>
                     </div>
                     <div class="meditations-link-container">
                         <a class="meditations-link" href="https://youtu.be/ANaIS9-o0Dw" target="_blank">
                             <span>מדיטציה לשחרור מחשבות טורדניות, חשיבת יתר ודאגות</span>
                         </a>
-                        <span class="favorite-circle" onclick="toggleFavorite(this, 'מדיטציה לשחרור מחשבות טורדניות, חשיבת יתר ודאגות', event)">○</span>
+                        <span class="favorite-circle" onclick="toggleFavorite(this, 'מדיטציה לשחרור מחשבות טורדניות, חשיבת יתר ודאגות', event)"></span>
                     </div>
                     <div class="meditations-link-container">
                         <a class="meditations-link" href="https://youtu.be/OZmEt7auY0k?si=iqvRVFfc4csOxEA3" target="_blank">
                             <span>מדיטציה בדמיון מודרך להרגעת של התקף חרדה וחרדה</span>
                         </a>
-                        <span class="favorite-circle" onclick="toggleFavorite(this, 'מדיטציה בדמיון מודרך להרגעת של התקף חרדה וחרדה', event)">○</span>
+                        <span class="favorite-circle" onclick="toggleFavorite(this, 'מדיטציה בדמיון מודרך להרגעת של התקף חרדה וחרדה', event)"></span>
                     </div>
                     <div class="meditations-link-container">
                         <a class="meditations-link" href="https://youtu.be/I65UTYRtd88?si=qyttbYXNZk25-zYq" target="_blank">
                             <span>מדיטציה קצרה לרגיעה ושחרור חרדות</span>
                         </a>
-                        <span class="favorite-circle" onclick="toggleFavorite(this, 'מדיטציה קצרה לרגיעה ושחרור חרדות', event)">○</span>
+                        <span class="favorite-circle" onclick="toggleFavorite(this, 'מדיטציה קצרה לרגיעה ושחרור חרדות', event)"></span>
                     </div>
                 </div>
                 
@@ -1503,25 +1564,25 @@
                         <a class="meditations-link" href="http://www.meditationlibrary.net/מדיטציה-לפני-השינה-לניקוי/" target="_blank">
                             <span>מדיטציה לפני השינה - לניקוי אנרגטי</span>
                         </a>
-                        <span class="favorite-circle" onclick="toggleFavorite(this, 'מדיטציה לפני השינה - לניקוי אנרגטי', event)">○</span>
+                        <span class="favorite-circle" onclick="toggleFavorite(this, 'מדיטציה לפני השינה - לניקוי אנרגטי', event)"></span>
                     </div>
                     <div class="meditations-link-container">
                         <a class="meditations-link" href="https://youtu.be/5ZcOF4Pjgwo" target="_blank">
                             <span>מדיטציה לשינה טקס לילי</span>
                         </a>
-                        <span class="favorite-circle" onclick="toggleFavorite(this, 'מדיטציה לשינה טקס לילי', event)">○</span>
+                        <span class="favorite-circle" onclick="toggleFavorite(this, 'מדיטציה לשינה טקס לילי', event)"></span>
                     </div>
                     <div class="meditations-link-container">
                         <a class="meditations-link" href="https://youtu.be/BeMlYGlQ6_Q" target="_blank">
                             <span>מדיטציית צלילה לשינה עמוקה</span>
                         </a>
-                        <span class="favorite-circle" onclick="toggleFavorite(this, 'מדיטציית צלילה לשינה עמוקה', event)">○</span>
+                        <span class="favorite-circle" onclick="toggleFavorite(this, 'מדיטציית צלילה לשינה עמוקה', event)"></span>
                     </div>
                     <div class="meditations-link-container">
                         <a class="meditations-link" href="https://youtu.be/QL2lmnWxSZY" target="_blank">
                             <span>מדיטציה ניקוי היום שחלף</span>
                         </a>
-                        <span class="favorite-circle" onclick="toggleFavorite(this, 'מדיטציה ניקוי היום שחלף', event)">○</span>
+                        <span class="favorite-circle" onclick="toggleFavorite(this, 'מדיטציה ניקוי היום שחלף', event)"></span>
                     </div>
                 </div>
                 
@@ -1532,19 +1593,19 @@
                         <a class="meditations-link" href="https://youtu.be/hQlsY1KDrXI" target="_blank">
                             <span>מדיטציה לחיזוק הביטחון העצמי ותחושת השליטה בחיים</span>
                         </a>
-                        <span class="favorite-circle" onclick="toggleFavorite(this, 'מדיטציה לחיזוק הביטחון העצמי ותחושת השליטה בחיים', event)">○</span>
+                        <span class="favorite-circle" onclick="toggleFavorite(this, 'מדיטציה לחיזוק הביטחון העצמי ותחושת השליטה בחיים', event)"></span>
                     </div>
                     <div class="meditations-link-container">
                         <a class="meditations-link" href="https://youtu.be/1LvT7VCP-go" target="_blank">
                             <span>להחזיר את שמחת החיים</span>
                         </a>
-                        <span class="favorite-circle" onclick="toggleFavorite(this, 'להחזיר את שמחת החיים', event)">○</span>
+                        <span class="favorite-circle" onclick="toggleFavorite(this, 'להחזיר את שמחת החיים', event)"></span>
                     </div>
                     <div class="meditations-link-container">
                         <a class="meditations-link" href="https://youtu.be/eN3Oqn6O4EU" target="_blank">
                             <span>מדיטציה בדיוק כפי שאני</span>
                         </a>
-                        <span class="favorite-circle" onclick="toggleFavorite(this, 'מדיטציה בדיוק כפי שאני', event)">○</span>
+                        <span class="favorite-circle" onclick="toggleFavorite(this, 'מדיטציה בדיוק כפי שאני', event)"></span>
                     </div>
                     <div class="meditations-link-container">
                         <a class="meditations-link" href="https://youtu.be/HTB5GDRjuwk?si=YPKvGESG1OoPNEJi" target="_blank">
@@ -1835,9 +1896,9 @@
     <div id="emotionsModal" class="reference-modal">
         <div class="reference-content">
             <span class="close" onclick="closeEmotionsReference()" style="position: absolute; top: 15px; left: 25px;">&times;</span>
-            <h2 style="margin-bottom: 20px; color: #4a5568;">רשימת רגשות</h2>
-            <div style="text-align: right; line-height: 2; padding: 20px; background: #f9f9f9; border-radius: 15px; max-height: 70vh; overflow-y: auto;">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <h2 style="margin-bottom: 15px; color: #4a5568;">רשימת רגשות</h2>
+            <div style="text-align: right; line-height: 2; padding: 15px; background: #f9f9f9; border-radius: 15px; max-height: 70vh; overflow-y: auto;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
                     <div>
                         <h3 style="color: #C86F7B; margin-bottom: 10px;">💝 חמלה</h3>
                         <p>חיבה, ידידות, חברות, הזדהות, רוך, חום, פתיחות, אהבה</p>
@@ -2029,9 +2090,9 @@
     <div id="needsModal" class="reference-modal">
         <div class="reference-content">
             <span class="close" onclick="closeNeedsReference()" style="position: absolute; top: 15px; left: 25px;">&times;</span>
-            <h2 style="margin-bottom: 20px; color: #4a5568;">רשימת צרכים</h2>
-            <div style="text-align: right; line-height: 2; padding: 20px; background: #f9f9f9; border-radius: 15px; max-height: 70vh; overflow-y: auto;">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+            <h2 style="margin-bottom: 15px; color: #4a5568;">רשימת צרכים</h2>
+            <div style="text-align: right; line-height: 2; padding: 15px; background: #f9f9f9; border-radius: 15px; max-height: 70vh; overflow-y: auto;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">
                     <div>
                         <h3 style="color: #8cb89c; margin-bottom: 10px;">🦅 חופש</h3>
                         <p>עצמאות, זמן, מרחב, חופש בחירה, אוטונומיה</p>
@@ -2155,7 +2216,7 @@
         
         <div style="text-align: center; margin-bottom: 20px;">
             <p class="calendar-hint">בחרי יום וקחי רגע קט — להתקרב אל עצמך</p>
-            <div class="month-year" id="monthYear" style="font-size: 2em; font-weight: 700; color: #737373; margin-bottom: 15px;"></div>
+            <div class="month-year" id="monthYear" style="font-size: 2em; font-weight: 700; color: #737373; margin-bottom: 6px;"></div>
             <div class="calendar-nav" style="display: flex; justify-content: center; gap: 15px;">
                 <button class="nav-btn" onclick="changeMonth(-1)">→ חודש קודם</button>
                 <button class="nav-btn" onclick="goToToday()">היום</button>
@@ -2208,7 +2269,7 @@
                 <div class="section-header">
                 <h3>💝 הכרת תודה</h3>
                 </div>
-                <p style="margin-bottom: 15px; color: #666;">רשמי שלושה דברים ששימחו, ריגשו או גרמו לך להרגשה טובה. זכרי להודות גם לעצמך!</p>
+                <p style="margin-bottom: 10px; color: #666; font-size: 19px;">רשמי שלושה דברים ששימחו, ריגשו או גרמו לך להרגשה טובה. זכרי להודות גם לעצמך!</p>
                 <textarea id="gratitude" placeholder="1. משהו שהיה טוב היום...&#10;2. משהו שאני מעריכה בעצמי...&#10;3. מישהו או משהו שאני אסירת תודה עליו..."></textarea>
             </div>
             
@@ -2219,9 +2280,9 @@
                 <div class="section-content">
                     <div class="breathing-exercise">
                         <div class="breathing-circle" id="breathingCircle">נשימה עמוקה</div>
-                        <div style="margin-top: 40px;">
+                        <div style="margin-top: 25px;">
                             <button class="nav-btn breathing-btn" onclick="startBreathing()">התחלת תרגיל</button>
-                            <p style="margin-top: 8px; color: #8cb89c; font-size: 16px; font-weight: 500;">טכניקת 4-7-8 להרגעות</p>
+                            <p style="margin-top: 8px; color: #8cb89c; font-size: 17px; font-weight: 500;">טכניקת 4-7-8 להרגעות</p>
                         </div>
                     </div>
                 </div>
@@ -2232,14 +2293,14 @@
                     <h3>🧘‍♀️ רגע של מדיטציה</h3>
                 </div>
                 <div class="section-content">
-                    <p style="margin-bottom: 15px; color: #666; font-size: 14px;">
+                    <p style="margin-bottom: 10px; color: #666; font-size: 19px;">
                         כאן תמצאי מגוון מדיטציות שיעזרו לך לעצור לרגע, לנשום ולהתחבר לעצמך. 
                         פשוט בחרי את מה שמתאים לך עכשיו ותני לעצמך רגע של שקט ורוגע.
                     </p>
                     <button class="meditation-btn" onclick="showMeditationsLibrary()">
                         🎧 אוסף מדיטציות
                     </button>
-                    <textarea id="meditationNotes" placeholder="זו הזדמנות בשבילי להקשיב פנימה ולכתוב לעצמי בכנות, גם אם אלו רק מילים בודדות" style="margin-top: 15px; min-height: 80px;"></textarea>
+                    <textarea id="meditationNotes" placeholder="זו הזדמנות בשבילי להקשיב פנימה ולכתוב לעצמי בכנות, גם אם אלו רק מילים בודדות" style="margin-top: 10px; min-height: 80px;"></textarea>
                 </div>
             </div>
             
@@ -2256,37 +2317,37 @@
                     <h3>💬 ניתוח סיטואציה – מודל תקשורת מקרבת</h3>
                 </div>
                 <div class="section-content">
-                    <p style="margin-bottom: 20px; color: #666; font-size: 14px;">מודל CNVC (תקשורת מקרבת) לניתוח מצבים רגשיים</p>
+                    <p style="margin-bottom: 12px; color: #666; font-size: 19px;">מודל CNVC (תקשורת מקרבת) לניתוח מצבים רגשיים</p>
                     
-                    <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                    <div style="background: white; padding: 12px; border-radius: 10px; margin-bottom: 8px;">
                         <h4 style="color: #8cb89c; margin-bottom: 10px;">🔍 תצפית</h4>
-                        <p style="font-size: 13px; color: #666; margin-bottom: 10px;"> תארי את הסיטואציה שקרתה, בלי פרשנות או שיפוט.</p>
+                        <p style="font-size: 19.5px; color: #666; margin-bottom: 10px;"> תארי את הסיטואציה שקרתה, בלי פרשנות או שיפוט.</p>
                         <textarea id="observation" placeholder="מה בדיוק קרה? תיאור עובדתי..."></textarea>
                     </div>
                     
-                    <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                    <div style="background: white; padding: 12px; border-radius: 10px; margin-bottom: 8px;">
                         <div class="section-header">
                             <h4 style="color: #8cb89c; margin: 0;">💙 רגש</h4>
                             <button class="reference-btn" onclick="showEmotionsReference()">רשימת רגשות</button>
                         </div>
-                        <p style="font-size: 13px; color: #666; margin-bottom: 10px;"> אילו רגשות עולים בך? בחרי מרשימת הרגשות.</p>
+                        <p style="font-size: 19.5px; color: #666; margin-bottom: 10px;"> אילו רגשות עולים בך? בחרי מרשימת הרגשות.</p>
                         <textarea id="feeling" placeholder="אני מרגישה... (כועסת, מוטרדת, מאוכזבת וכו')"></textarea>
                     </div>
                     
-                    <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                    <div style="background: white; padding: 12px; border-radius: 10px; margin-bottom: 8px;">
                         <div class="section-header">
                             <h4 style="color: #8cb89c; margin: 0;">🎯 צורך</h4>
                             <button class="reference-btn" onclick="showNeedsReference()">רשימת צרכים</button>
                         </div>
-                        <p style="font-size: 13px; color: #666; margin-bottom: 10px;"> אילו צרכים מסתתרים מאחורי הרגש הזה? בחרי מרשימת הצרכים.</p>
+                        <p style="font-size: 19.5px; color: #666; margin-bottom: 10px;"> אילו צרכים מסתתרים מאחורי הרגש הזה? בחרי מרשימת הצרכים.</p>
                         <textarea id="need" placeholder="אני צריכה... (כבוד, הבנה, ביטחון, סדר וכו')"></textarea>
                     </div>
                     
-                    <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                    <div style="background: white; padding: 12px; border-radius: 10px; margin-bottom: 8px;">
                         <h4 style="color: #8cb89c; margin-bottom: 10px;">🙏 בקשה</h4>
-                        <p style="font-size: 13px; color: #666; margin-bottom: 10px;"> כתבי בצורה ברורה, ספציפית וחיובית מה את מבקשת. הניסוח צריך להיות שאלה ולא דרישה או אולטימטום.</p>
+                        <p style="font-size: 19.5px; color: #666; margin-bottom: 10px;"> כתבי בצורה ברורה, ספציפית וחיובית מה את מבקשת. הניסוח צריך להיות שאלה ולא דרישה או אולטימטום.</p>
                         <textarea id="request" placeholder="האם תוכלי בבקשה...? / האם אפשר...?"></textarea>
-                        <div style="background: #f0f8ff; padding: 10px; border-radius: 8px; margin-top: 10px; font-size: 12px; color: #666;">
+                        <div style="background: #f0f8ff; padding: 10px; border-radius: 8px; margin-top: 10px; font-size: 17px; color: #666;">
                             <strong>💡 דוגמה:</strong><br>
                             <em>"כשלקחת את הטלפון שלי בלי לשאול (תצפית) הרגשתי מתוסכלת ומאוכזבת (רגש) כי חשוב לי לקבל התחשבות והסכמה לפני שמשתמשים בדברים שלי (צורך). האם תוכלי בבקשה לשאול אותי מראש לפני שאת משתמשת בטלפון שלי? (בקשה)"</em>
                         </div>
@@ -2301,48 +2362,48 @@
                 <div class="section-content">
                     <h4 style="color: #667eea; margin-bottom: 15px;">אני עוצרת רגע לבדוק עם עצמי - האם זה קורה לי שוב?</h4>
                     
-                    <div style="margin-bottom: 15px;">
+                    <div style="margin-bottom: 8px;">
                         <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px;">איך הגבתי לסיטואציה הזאת?</label>
                         <textarea id="reaction_response" placeholder="תארי את התגובה שלך..."></textarea>
                     </div>
                     
-                    <div style="margin-bottom: 15px;">
+                    <div style="margin-bottom: 8px;">
                         <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px;">האם קרה לי משהו דומה בעבר?</label>
                         <textarea id="similar_past" placeholder="האם היו מצבים דומים? מה קרה?"></textarea>
                     </div>
                     
-                    <div style="margin-bottom: 15px;">
+                    <div style="margin-bottom: 8px;">
                         <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px;">איך אני מרגישה אחרי התגובה שלי?</label>
                         <textarea id="feelings_after" placeholder="מה אני מרגישה כשאני חושבת על איך הגבתי?"></textarea>
                     </div>
                     
-                    <div style="margin-bottom: 15px;">
+                    <div style="margin-bottom: 8px;">
                         <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px;">האם זה השפיע על הקשרים שלי עם אחרים?</label>
                         <textarea id="impact_relationships" placeholder="איך זה השפיע על הקשרים שלי?"></textarea>
                     </div>
                     
-                    <div style="margin-bottom: 15px;">
+                    <div style="margin-bottom: 8px;">
                         <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px;">איך אני חושבת שזה השפיע על אנשים שהיו איתי?</label>
                         <textarea id="impact_others" placeholder="מה אני חושבת שהם הרגישו?"></textarea>
                     </div>
                     
-                    <div style="margin-bottom: 15px;">
+                    <div style="margin-bottom: 8px;">
                         <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px;">מה הייתי רוצה לנסות או לשנות בפעם הבאה?</label>
                         <textarea id="want_to_change" placeholder="איך הייתי רוצה להגיב בפעם הבאה?"></textarea>
                     </div>
                     
-                    <div style="margin-bottom: 20px;">
+                    <div style="margin-bottom: 12px;">
                         <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px;">מה הצעד הבא שלי? קטן או גדול – כל צעד חשוב!</label>
                         <textarea id="next_step" placeholder="איזה צעד אני יכולה לעשות?"></textarea>
                     </div>
                     
-                <div style="background: #F0F8F0; padding: 15px; border-radius: 10px; margin-bottom: 15px; text-align: center;">
-                    <p style="color: #8cb89c; font-size: 14px; margin: 0; line-height: 1.6;">
+                <div style="background: #F0F8F0; padding: 12px; border-radius: 10px; margin-bottom: 8px; text-align: center;">
+                    <p style="color: #8cb89c; font-size: 19px; margin: 0; line-height: 1.6;">
                         💚 <strong>זכרי שכל שינוי לוקח זמן, הרשי לעצמך לטעות וללמוד בדרך שלך.</strong>
                     </p>
                 </div>
                     
-                    <div style="margin-bottom: 15px;">
+                    <div style="margin-bottom: 8px;">
                         <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px;">חזרי לכאן בהמשך כדי לרשום הצלחות או שינויים שהרגשת מאז שעבדת על המודעות הזו:</label>
                         <textarea id="follow_up_progress" placeholder="מה השתנה? איך זה הרגיש?"></textarea>
                     </div>
@@ -3515,11 +3576,11 @@
             // Toggle favorite state
             if (circleElement.classList.contains('filled')) {
                 circleElement.classList.remove('filled');
-                circleElement.textContent = '○';
+                circleElement.textContent = '☆';
                 removeFavorite(meditationName);
             } else {
                 circleElement.classList.add('filled');
-                circleElement.textContent = '●';
+                circleElement.textContent = '★';
                 addFavorite(meditationName);
             }
             
@@ -3616,7 +3677,9 @@
                     const meditationName = linkSpan.textContent;
                     if (favorites.includes(meditationName)) {
                         circle.classList.add('filled');
-                        circle.textContent = '●';
+                        circle.textContent = '★';
+                    } else {
+                        circle.textContent = '☆';
                     }
                 }
             });
@@ -3654,13 +3717,150 @@
         }
         
         // Safe localStorage wrapper functions
-        
+        function safeGetItem(key) {
+            try {
+                return localStorage.getItem(key);
+            } catch (e) {
+                console.error('Error accessing localStorage:', e);
+                return null;
+            }
+        }
 
-        
+        function safeSetItem(key, value) {
+            try {
+                localStorage.setItem(key, value);
+            } catch (e) {
+                console.error('Error setting localStorage:', e);
+            }
+        }
+
+        // PWA Installation
+        let deferredPrompt;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent Chrome 67 and earlier from automatically showing the prompt
+            e.preventDefault();
+            // Stash the event so it can be triggered later
+            deferredPrompt = e;
+            
+            // Show install button or notification
+            showInstallPrompt();
+        });
+
+        function showInstallPrompt() {
+            // Create install button if it doesn't exist
+            if (!document.getElementById('installButton')) {
+                const installButton = document.createElement('button');
+                installButton.id = 'installButton';
+                installButton.textContent = '📱 התקן אפליקציה';
+                installButton.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    left: 20px;
+                    background: #8cb89c;
+                    color: white;
+                    border: none;
+                    padding: 12px 20px;
+                    border-radius: 25px;
+                    font-size: 14px;
+                    cursor: pointer;
+                    z-index: 10000;
+                    box-shadow: 0 4px 12px rgba(140, 184, 156, 0.3);
+                    transition: all 0.3s ease;
+                `;
+                
+                installButton.addEventListener('click', installApp);
+                installButton.addEventListener('mouseenter', () => {
+                    installButton.style.transform = 'translateY(-2px)';
+                    installButton.style.boxShadow = '0 6px 16px rgba(140, 184, 156, 0.4)';
+                });
+                installButton.addEventListener('mouseleave', () => {
+                    installButton.style.transform = 'translateY(0)';
+                    installButton.style.boxShadow = '0 4px 12px rgba(140, 184, 156, 0.3)';
+                });
+                
+                document.body.appendChild(installButton);
+                
+                // Auto-hide after 10 seconds
+                setTimeout(() => {
+                    if (installButton.parentNode) {
+                        installButton.style.opacity = '0';
+                        setTimeout(() => {
+                            if (installButton.parentNode) {
+                                installButton.remove();
+                            }
+                        }, 300);
+                    }
+                }, 10000);
+            }
+        }
+
+        function installApp() {
+            if (deferredPrompt) {
+                // Show the install prompt
+                deferredPrompt.prompt();
+                
+                // Wait for the user to respond to the prompt
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                    } else {
+                        console.log('User dismissed the install prompt');
+                    }
+                    deferredPrompt = null;
+                    
+                    // Hide the install button
+                    const installButton = document.getElementById('installButton');
+                    if (installButton) {
+                        installButton.remove();
+                    }
+                });
+            }
+        }
+
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch((registrationError) => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+
         // Check if user is already logged in
-        
-
-        
+        function checkAutoLogin() {
+            const sessionData = safeGetItem('loginSession');
+            if (sessionData) {
+                try {
+                    const session = JSON.parse(sessionData);
+                    const now = Date.now();
+                    
+                    // Check if session is still valid (not expired)
+                    if (session.expiresAt > now) {
+                        // Auto login
+                        currentUsername = session.username;
+                        document.getElementById('currentUser').textContent = session.username;
+                        document.getElementById('loginScreen').style.display = 'none';
+                        document.getElementById('mainApp').style.display = 'block';
+                        
+                        loadUserData();
+                        generateCalendar();
+                        return true;
+                    } else {
+                        // Session expired, clear it
+                        localStorage.removeItem('loginSession');
+                    }
+                } catch (e) {
+                    console.error('Error parsing session data:', e);
+                    localStorage.removeItem('loginSession');
+                }
+            }
+            return false;
+        }
 
     </script>
 </body>
