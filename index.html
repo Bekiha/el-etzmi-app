@@ -838,15 +838,25 @@
         
         .favorite-circle {
             cursor: pointer;
-            font-size: 18px;
+            font-size: 22px;
             margin-left: 10px;
-            color: #D3D3D3;
+            color: #8cb89c;
             transition: all 0.3s ease;
             user-select: none;
+            border: 2px solid #8cb89c;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(140, 184, 156, 0.1);
         }
         
         .favorite-circle.filled {
-            color: #98bfa6;
+            color: #ffffff;
+            background: #8cb89c;
+            border-color: #8cb89c;
         }
         
         .meditations-link:hover .favorite-circle {
@@ -987,6 +997,14 @@
             .header h1 {
                 font-size: 2.5em;
                 margin-bottom: 15px;
+            }
+            
+            .favorite-circle {
+                font-size: 24px;
+                width: 32px;
+                height: 32px;
+                border-width: 3px;
+                margin-left: 12px;
             }
         }
 
