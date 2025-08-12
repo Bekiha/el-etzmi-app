@@ -14,9 +14,9 @@
     <meta name="mobile-web-app-capable" content="yes">
     
     <!-- PWA Icons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="el_eztmi_logo_optimized.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="el_eztmi_logo_optimized.png">
-    <link rel="apple-touch-icon" href="el_eztmi_logo_optimized.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icon-192x192.png">
+    <link rel="apple-touch-icon" href="icon-192x192.png">
     <link rel="manifest" href="manifest.json">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Assistant:wght@300;400;500;600;700&family=Rubik:wght@300;400;500;600;700&family=Heebo:wght@300;400;500;600;700&family=Varela+Round&display=swap');
@@ -3747,6 +3747,17 @@
             showInstallPrompt();
         });
 
+        // Show install instructions for manual installation
+        window.addEventListener('load', () => {
+            // Check if app is not already installed
+            if (!window.matchMedia('(display-mode: standalone)').matches && 
+                !window.navigator.standalone) {
+                setTimeout(() => {
+                    showInstallInstructions();
+                }, 3000);
+            }
+        });
+
         function showInstallPrompt() {
             // Create install button if it doesn't exist
             if (!document.getElementById('installButton')) {
@@ -3818,10 +3829,72 @@
             }
         }
 
+        function showInstallInstructions() {
+            // Create install instructions modal
+            if (!document.getElementById('installInstructions')) {
+                const modal = document.createElement('div');
+                modal.id = 'installInstructions';
+                modal.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.8);
+                    z-index: 10001;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                `;
+                
+                const content = document.createElement('div');
+                content.style.cssText = `
+                    background: white;
+                    padding: 30px;
+                    border-radius: 15px;
+                    max-width: 400px;
+                    text-align: center;
+                    direction: rtl;
+                `;
+                
+                content.innerHTML = `
+                    <h3 style="color: #8cb89c; margin-bottom: 20px;">📱 התקן את האפליקציה</h3>
+                    <p style="margin-bottom: 15px; color: #666;">כדי להתקין את האפליקציה על המכשיר שלך:</p>
+                    <div style="text-align: right; margin-bottom: 20px;">
+                        <p><strong>בדפדפן Chrome:</strong></p>
+                        <p>• לחצי על ⋮ (שלוש נקודות)</p>
+                        <p>• בחרי "התקן אפליקציה"</p>
+                        <br>
+                        <p><strong>בדפדפן Safari:</strong></p>
+                        <p>• לחצי על 📤 (שיתוף)</p>
+                        <p>• בחרי "הוסף למסך הבית"</p>
+                    </div>
+                    <button onclick="closeInstallInstructions()" style="
+                        background: #8cb89c;
+                        color: white;
+                        border: none;
+                        padding: 10px 20px;
+                        border-radius: 8px;
+                        cursor: pointer;
+                    ">הבנתי</button>
+                `;
+                
+                modal.appendChild(content);
+                document.body.appendChild(modal);
+            }
+        }
+
+        function closeInstallInstructions() {
+            const modal = document.getElementById('installInstructions');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
         // Register Service Worker
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
+                navigator.serviceWorker.register('./sw.js')
                     .then((registration) => {
                         console.log('SW registered: ', registration);
                     })
