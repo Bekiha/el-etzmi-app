@@ -17,7 +17,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
             background: linear-gradient(135deg, #F9F9F7 0%, #F2F1ED 50%, #FAFAF8 100%);
             min-height: 100vh;
-            padding: 15px; /* הקטנתי מ-20px */
+            padding: 20px;
             direction: rtl;
         }
         
@@ -26,28 +26,28 @@
             margin: 0 auto;
             background: rgba(249, 249, 247, 0.95);
             border-radius: 20px;
-            padding: 25px; /* הקטנתי מ-30px */
+            padding: 30px;
             box-shadow: 0 20px 40px rgba(140, 184, 156, 0.1);
             border: 1px solid rgba(140, 184, 156, 0.3);
         }
         
         .header {
             text-align: center;
-            margin-bottom: 20px; /* הקטנתי מ-25px למובייל */
+            margin-bottom: 30px;
             position: relative;
         }
         
         .logo {
             max-width: 300px;
             height: auto;
-            margin-bottom: 8px; /* הקטנתי מ-10px */
+            margin-bottom: 10px;
         }
         
         .header h1 {
             font-family: 'Varela Round', 'Alef', 'Heebo', 'Rubik', 'Assistant', sans-serif;
             color: #8cb89c;
             font-size: 3.5em;
-            margin-bottom: 6px; /* הקטנתי מ-8px למובייל */
+            margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(140, 184, 156, 0.15);
             font-weight: 600;
             letter-spacing: 1px;
@@ -55,7 +55,7 @@
         
         .header p {
             color: #D4B896;
-            font-size: 1.9em; /* הגדלתי מ-1.7em למובייל */
+            font-size: 1.2em;
             font-weight: 300;
         }
         
@@ -63,635 +63,15 @@
             background: transparent;
             color: #3a3a3a;
             border: none;
-            padding: 10px 14px; /* הקטנתי מ-12px 16px */
+            padding: 12px 4px;
             cursor: pointer;
-            font-size: 19px; /* הגדלתי מ-17px למובייל */
+            font-size: 16px;
             font-weight: 500;
             transition: all 0.3s ease;
-            border-radius: 8px;
-            min-width: 100px;
         }
         
         .nav-btn:hover {
             color: #111827;
-            background: rgba(140, 184, 156, 0.1);
-            transform: translateY(-1px);
-            box-shadow: 0 2px 8px rgba(140, 184, 156, 0.2);
-        }
-        
-        .nav-btn:active {
-            transform: translateY(0);
-            box-shadow: 0 1px 4px rgba(140, 184, 156, 0.3);
-        }
-        
-        .nav-btn:focus {
-            outline: 2px solid rgba(140, 184, 156, 0.5);
-            outline-offset: 2px;
-        }
-        
-        /* Simplified focus state for mobile - removed excessive focus states */
-        
-        /* All excessive focus states removed for mobile optimization */
-        
-        /* Additional improvements for calendar elements */
-        .calendar-day {
-            transition: all 0.3s ease;
-        }
-        
-        .calendar-day:hover {
-            transform: scale(1.02);
-            box-shadow: 0 4px 12px rgba(140, 184, 156, 0.15);
-        }
-        
-        .calendar-day:active {
-            transform: scale(0.98);
-        }
-        
-        /* Improvements for modal sections */
-        .section {
-            transition: all 0.3s ease;
-        }
-        
-        .section:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(140, 184, 156, 0.1);
-        }
-        
-        /* Improvements for mood buttons */
-        .mood-btn {
-            transition: all 0.3s ease;
-        }
-        
-        .mood-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(140, 184, 156, 0.2);
-            border-color: #8cb89c;
-        }
-        
-        .mood-btn:active {
-            transform: translateY(0);
-        }
-        
-        /* Improvements for text areas and inputs */
-        textarea:focus, input:focus {
-            outline: none;
-            border-color: #8cb89c;
-            box-shadow: 0 0 0 3px rgba(140, 184, 156, 0.1);
-            transform: translateY(-1px);
-        }
-        
-        /* Improvements for save button */
-        .save-btn {
-            transition: all 0.3s ease;
-        }
-        
-        .save-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(140, 184, 156, 0.4);
-        }
-        
-        .save-btn:active {
-            transform: translateY(0);
-        }
-        
-        /* Improvements for close button */
-        .close {
-            transition: all 0.3s ease;
-        }
-        
-        .close:hover {
-            color: #8cb89c;
-            transform: scale(1.1);
-        }
-        
-        .close:active {
-            transform: scale(0.95);
-        }
-        
-        /* Improvements for breathing exercise */
-        .breathing-circle {
-            transition: all 0.3s ease;
-        }
-        
-        .breathing-circle:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 24px rgba(140, 184, 156, 0.3);
-        }
-        
-        .breathing-circle:active {
-            transform: scale(0.98);
-        }
-        
-        /* Improvements for reference buttons */
-        .reference-btn {
-            transition: all 0.3s ease;
-        }
-        
-        .reference-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 3px 10px rgba(152, 191, 166, 0.3);
-            background: #87b095;
-        }
-        
-        .reference-btn:active {
-            transform: translateY(0);
-        }
-        
-        /* Improvements for Google sign-in button */
-        .google-signin-btn {
-            transition: all 0.3s ease;
-        }
-        
-        .google-signin-btn:hover {
-            background: #4285f4;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
-        }
-        
-        .google-signin-btn:active {
-            transform: translateY(0);
-        }
-        
-        /* Improvements for meditation buttons */
-        .meditation-btn {
-            transition: all 0.3s ease;
-        }
-        
-        .meditation-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(152, 191, 166, 0.4);
-            background: #87b095;
-        }
-        
-        .meditation-btn:active {
-            transform: translateY(0);
-        }
-        
-        /* Improvements for meditation links */
-        .meditation-link {
-            transition: all 0.3s ease;
-        }
-        
-        .meditation-link:hover {
-            background: linear-gradient(45deg, rgba(159, 122, 234, 0.1), rgba(139, 92, 246, 0.1));
-            border-color: rgba(159, 122, 234, 0.3);
-            transform: translateX(-5px);
-        }
-        
-        .meditation-link:active {
-            transform: translateX(-3px);
-        }
-        
-        /* Improvements for export buttons */
-        .export-btn {
-            transition: all 0.3s ease;
-        }
-        
-        .export-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 3px 10px rgba(198, 183, 155, 0.3);
-        }
-        
-        .export-btn:active {
-            transform: translateY(0);
-        }
-        
-        /* Improvements for filter favorites button */
-        .filter-favorites-btn {
-            transition: all 0.3s ease;
-        }
-        
-        .filter-favorites-btn:hover {
-            background: #7fa892;
-            transform: translateY(-1px);
-        }
-        
-        .filter-favorites-btn:active {
-            transform: translateY(0);
-        }
-        
-        /* Improvements for favorite circles */
-        .favorite-circle {
-            transition: all 0.3s ease;
-        }
-        
-        .favorite-circle:hover {
-            transform: scale(1.1);
-            color: #98bfa6;
-        }
-        
-        .favorite-circle:active {
-            transform: scale(0.95);
-        }
-        
-        /* Improvements for meditations links */
-        .meditations-link {
-            transition: all 0.3s ease;
-        }
-        
-        .meditations-link:hover {
-            background: #98bfa6;
-            color: white;
-            border-color: #98bfa6;
-            transform: translateX(-3px);
-        }
-        
-        .meditations-link:active {
-            transform: translateX(-1px);
-        }
-        
-        /* Improvements for hamburger menu */
-        .hamburger {
-            transition: all 0.3s ease;
-        }
-        
-        .hamburger:hover {
-            background: rgba(140, 184, 156, 0.1);
-            transform: scale(1.05);
-        }
-        
-        .hamburger:active {
-            transform: scale(0.95);
-        }
-        
-        /* Improvements for menu items */
-        .menu-item {
-            transition: all 0.3s ease;
-        }
-        
-        .menu-item:hover {
-            color: #111827;
-            background: rgba(140, 184, 156, 0.05);
-            transform: translateX(-3px);
-        }
-        
-        .menu-item:active {
-            transform: translateX(-1px);
-        }
-        
-        /* Improvements for side panel close buttons */
-        .meditations-close-btn,
-        .emotions-close-btn,
-        .needs-close-btn {
-            transition: all 0.3s ease;
-        }
-        
-        .meditations-close-btn:hover,
-        .emotions-close-btn:hover,
-        .needs-close-btn:hover {
-            background: rgba(255,255,255,0.2);
-            transform: scale(1.1);
-        }
-        
-        .meditations-close-btn:active,
-        .emotions-close-btn:active,
-        .needs-close-btn:active {
-            transform: scale(0.95);
-        }
-        
-        /* Improvements for section toggles */
-        .section-toggle {
-            transition: all 0.3s ease;
-        }
-        
-        .section-toggle:hover {
-            color: #8cb89c;
-            transform: translateY(-1px);
-        }
-        
-        .section-toggle:active {
-            transform: translateY(0);
-        }
-        
-        /* Improvements for remember me checkboxes */
-        .remember-me-label {
-            transition: all 0.3s ease;
-        }
-        
-        .remember-me-label:hover {
-            color: #8cb89c;
-            transform: translateY(-1px);
-        }
-        
-        .remember-me-label:active {
-            transform: translateY(0);
-        }
-        
-        /* Improvements for pin input */
-        .pin-input {
-            transition: all 0.3s ease;
-        }
-        
-        .pin-input:focus {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 16px rgba(140, 184, 156, 0.2);
-        }
-        
-        .pin-input:active {
-            transform: translateY(0);
-        }
-        
-        /* Improvements for month year display */
-        .month-year {
-            transition: all 0.3s ease;
-        }
-        
-        .month-year:hover {
-            color: #8cb89c;
-            transform: scale(1.02);
-        }
-        
-        .month-year:active {
-            transform: scale(1);
-        }
-        
-        /* Improvements for calendar hint */
-        .calendar-hint {
-            transition: all 0.3s ease;
-        }
-        
-        .calendar-hint:hover {
-            color: #8cb89c;
-            transform: translateY(-1px);
-        }
-        
-        .calendar-hint:active {
-            transform: translateY(0);
-        }
-        
-        /* Improvements for logo */
-        .logo {
-            transition: all 0.3s ease;
-        }
-        
-        .logo:hover {
-            transform: scale(1.02);
-            filter: brightness(1.1);
-        }
-        
-        .logo:active {
-            transform: scale(0.98);
-        }
-        
-        /* Improvements for support message */
-        .support-message {
-            transition: all 0.3s ease;
-        }
-        
-        .support-message:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(200, 111, 123, 0.3);
-        }
-        
-        .support-message:active {
-            transform: translateY(0);
-        }
-        
-        /* Improvements for pin section */
-        .pin-section {
-            transition: all 0.3s ease;
-        }
-        
-        .pin-section:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(212, 184, 150, 0.2);
-        }
-        
-        .pin-section:active {
-            transform: translateY(0);
-        }
-        
-        /* Improvements for privacy note */
-        .privacy-note {
-            transition: all 0.3s ease;
-        }
-        
-        .privacy-note:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 2px 8px rgba(140, 184, 156, 0.2);
-        }
-        
-        .privacy-note:active {
-            transform: translateY(0);
-        }
-        
-        /* Improvements for warning section */
-        .warning-section {
-            transition: all 0.3s ease;
-        }
-        
-        .warning-section:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 16px rgba(246, 173, 85, 0.2);
-        }
-        
-        .warning-section:active {
-            transform: translateY(0);
-        }
-        
-        /* Improvements for analysis section */
-        .analysis-section {
-            transition: all 0.3s ease;
-        }
-        
-        .analysis-section:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(200, 111, 123, 0.2);
-        }
-        
-        .analysis-section:active {
-            transform: translateY(0);
-        }
-        
-        /* Improvements for meditation categories */
-        .meditation-category {
-            transition: all 0.3s ease;
-        }
-        
-        .meditation-category:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(159, 122, 234, 0.1);
-        }
-        
-        .meditation-category:active {
-            transform: translateY(0);
-        }
-        
-        /* Improvements for meditations categories */
-        .meditations-category {
-            transition: all 0.3s ease;
-        }
-        
-        .meditations-category:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(152, 191, 166, 0.1);
-        }
-        
-        .meditations-category:active {
-            transform: translateY(0);
-        }
-        
-        /* Improvements for side panels */
-        .meditations-side-panel,
-        .emotions-side-panel,
-        .needs-side-panel {
-            transition: all 0.3s ease;
-        }
-        
-        .meditations-side-panel.active,
-        .emotions-side-panel.active,
-        .needs-side-panel.active {
-            animation: slideIn 0.3s ease-out;
-        }
-        
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(100%);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        /* Improvements for modal animations */
-        .modal {
-            animation: fadeIn 0.3s ease-out;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        /* Improvements for calendar animations */
-        .calendar-day {
-            animation: fadeInUp 0.3s ease-out;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Improvements for breathing exercise animations */
-        .breathing-circle {
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 rgba(140, 184, 156, 0);
-            }
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 0 0 20px rgba(140, 184, 156, 0.1);
-            }
-        }
-        
-        /* Improvements for loading states */
-        .loading {
-            opacity: 0.6;
-            pointer-events: none;
-        }
-        
-        .loading::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 20px;
-            height: 20px;
-            margin: -10px 0 0 -10px;
-            border: 2px solid #8cb89c;
-            border-top: 2px solid transparent;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* Improvements for focus management */
-        .modal:focus-within {
-            outline: none;
-        }
-        
-        .modal:focus-within .modal-content {
-            box-shadow: 0 20px 40px rgba(140, 184, 156, 0.3);
-        }
-        
-        /* Improvements for keyboard navigation */
-        .nav-btn:focus-visible,
-        .mood-btn:focus-visible,
-        .save-btn:focus-visible {
-            outline: 2px solid rgba(140, 184, 156, 0.7);
-            outline-offset: 2px;
-        }
-        
-        /* Improvements for reduced motion preferences */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-        
-        /* Improvements for high contrast mode */
-        @media (prefers-contrast: high) {
-            .mood-btn {
-                border-width: 3px;
-            }
-            
-            .save-btn {
-                border: 3px solid #8cb89c;
-            }
-            
-            .nav-btn {
-                border: 2px solid #3a3a3a;
-            }
-        }
-        
-        /* Improvements for dark mode support */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1f1f1f 100%);
-            }
-            
-            .container {
-                background: rgba(45, 45, 45, 0.95);
-                border-color: rgba(140, 184, 156, 0.5);
-            }
-            
-            .modal-content {
-                background: #2d2d2d;
-                border-color: rgba(140, 184, 156, 0.5);
-            }
-            
-            .section {
-                background: #3a3a3a;
-                border-color: rgba(212, 184, 150, 0.4);
-            }
         }
         
         .calendar {
@@ -701,20 +81,20 @@
             background: #D4B896;
             border-radius: 15px;
             overflow: hidden;
-            margin-bottom: 18px; /* הקטנתי מ-20px למובייל */
+            margin-bottom: 30px;
         }
         
         .calendar-header {
             background: #8cb89c;
             color: white;
-            padding: 8px; /* הקטנתי מ-10px למובייל */
+            padding: 15px;
             text-align: center;
             font-weight: 600;
         }
         
         .calendar-day {
             background: #F9F9F7;
-            padding: 8px; /* הקטנתי מ-10px למובייל */
+            padding: 15px;
             min-height: 80px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -749,7 +129,7 @@
         
         .day-number {
             font-weight: 600;
-            font-size: 1.4em; /* מותאם למובייל לפי הנחיות */
+            font-size: 1.1em;
             color: #737373;
         }
         
@@ -759,10 +139,10 @@
         }
         
         .day-special-icon {
-            font-size: 17px; /* הגדלתי מ-15px למובייל */
+            font-size: 14px;
             position: absolute;
-            top: 3px; /* הקטנתי מ-4px למובייל */
-            left: 3px; /* הקטנתי מ-4px למובייל */
+            top: 5px;
+            left: 5px;
             opacity: 0.9;
         }
         
@@ -775,13 +155,13 @@
             height: 100%;
             background: rgba(0,0,0,0.5);
             z-index: 1000;
-            backdrop-filter: blur(2px); /* הקטנתי מ-3px למובייל */
+            backdrop-filter: blur(5px);
         }
         
         .modal-content {
             background: #F9F9F7;
-            margin: 1.5% auto; /* הקטנתי מ-2% */
-            padding: 20px; /* הקטנתי מ-22px למובייל */
+            margin: 2% auto;
+            padding: 30px;
             border-radius: 20px;
             width: 90%;
             max-width: 800px;
@@ -793,8 +173,8 @@
         
         .close {
             position: absolute;
-            top: 12px; /* הקטנתי מ-15px */
-            left: 20px; /* הקטנתי מ-25px */
+            top: 15px;
+            left: 25px;
             color: #b5a397;
             font-size: 28px;
             font-weight: bold;
@@ -808,16 +188,16 @@
         
         .modal h2 {
             color: #C86F7B;
-            margin-bottom: 18px; /* הקטנתי מ-20px */
+            margin-bottom: 20px;
             text-align: center;
-            font-size: 1.8em; /* הקטנתי מ-2.1em למובייל */
+            font-size: 1.8em;
             font-weight: 600;
         }
         
         .section {
             background: #F4F4F2;
-            padding: 18px; /* הקטנתי מ-20px */
-            margin-bottom: 15px; /* הקטנתי מ-18px למובייל */
+            padding: 20px;
+            margin-bottom: 20px;
             border-radius: 15px;
             border-right: 5px solid #D4B896;
             border: 1px solid rgba(212, 184, 150, 0.2);
@@ -825,8 +205,8 @@
         
         .section h3 {
             color: #C86F7B;
-            margin-bottom: 12px; /* הקטנתי מ-15px */
-            font-size: 1.4em; /* הקטנתי מ-1.5em למובייל */
+            margin-bottom: 15px;
+            font-size: 1.3em;
             font-weight: 600;
         }
         
@@ -834,7 +214,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 6px; /* הקטנתי מ-8px למובייל */
+            margin-bottom: 10px;
         }
         
         .section.collapsed {
@@ -859,7 +239,7 @@
             content: "▼";
             transition: transform 0.3s ease;
             color: #667eea;
-            font-size: 16px; /* הקטנתי מ-17px למובייל */
+            font-size: 14px;
         }
         
         .section.collapsed .section-toggle::after {
@@ -870,34 +250,31 @@
             background: #fffbf0;
             border: 2px solid #f6ad55;
             border-radius: 10px;
-            padding: 18px; /* הקטנתי מ-20px למובייל */
-            margin-bottom: 15px; /* הקטנתי מ-20px למובייל */
+            padding: 20px;
+            margin-bottom: 20px;
             color: #744210;
         }
         
         .warning-section h4 {
             color: #c05621;
-            margin-bottom: 8px; /* הקטנתי מ-10px למובייל */
+            margin-bottom: 10px;
         }
         
         .mood-selector {
             display: flex;
-            gap: 6px; /* הקטנתי מ-8px למובייל */
+            gap: 10px;
             flex-wrap: wrap;
-            margin-bottom: 10px; /* הקטנתי מ-12px למובייל */
+            margin-bottom: 15px;
         }
         
         .mood-btn {
-            padding: 12px 18px;
+            padding: 10px 15px;
             border: 2px solid #e2e8f0;
             background: white;
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 1.4em; /* הקטנתי מ-1.8em למובייל */
-            font-weight: 500;
-            min-width: 90px;
-            text-align: center;
+            font-size: 1.2em;
         }
         
         .mood-btn.selected {
@@ -910,11 +287,11 @@
             background: #98bfa6;
             color: white;
             border: none;
-            padding: 7px 12px; /* הקטנתי מ-8px 15px למובייל */
+            padding: 8px 15px;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 16px; /* הגדלתי מ-13px למובייל */
-            margin-right: 8px; /* הקטנתי מ-10px למובייל */
+            font-size: 13px;
+            margin-right: 10px;
             transition: all 0.3s ease;
         }
         
@@ -929,7 +306,7 @@
             background: #ffffff;
             color: #4285f4;
             border: 2px solid #4285f4;
-            padding: 10px 20px; /* הקטנתי מ-12px 24px למובייל */
+            padding: 12px 24px;
             border-radius: 10px;
             cursor: pointer;
             font-size: 16px;
@@ -938,7 +315,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px; /* הקטנתי מ-10px למובייל */
+            gap: 10px;
         }
         .google-signin-btn:hover {
             background: #4285f4;
@@ -948,15 +325,14 @@
         
         textarea, input {
             width: 100%;
-            padding: 15px; /* הקטנתי מ-18px */
+            padding: 15px;
             border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 16px; /* הקטנתי מ-18px למובייל */
+            border-radius: 10px;
+            font-size: 16px;
             font-family: inherit;
             resize: vertical;
-            min-height: 100px; /* הקטנתי מ-120px */
+            min-height: 100px;
             transition: border-color 0.3s ease;
-            line-height: 1.5;
         }
         
         textarea:focus, input:focus {
@@ -967,7 +343,7 @@
         
         .breathing-exercise {
             text-align: center;
-            padding: 12px; /* הקטנתי מ-15px */
+            padding: 20px;
         }
         
         .breathing-circle {
@@ -975,11 +351,11 @@
             height: 150px;
             border: 3px solid #8cb89c;
             border-radius: 50%;
-            margin: 15px auto; /* הקטנתי מ-20px */
+            margin: 20px auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.6em; /* הקטנתי מ-1.9em למובייל */
+            font-size: 1.2em;
             color: #8cb89c;
             background: transparent;
             box-shadow: 0 0 0 rgba(140, 184, 156, 0);
@@ -1002,29 +378,29 @@
         
         .breathing-btn {
             font-weight: bold !important;
-            font-size: 19px !important; /* הקטנתי מ-21px למובייל */
+            font-size: 18px !important;
         }
         
         .support-message {
             background: linear-gradient(45deg, #C86F7B, #B55E6A);
             color: white;
-            padding: 15px; /* הקטנתי מ-20px */
+            padding: 20px;
             border-radius: 15px;
             text-align: center;
-            font-size: 17px; /* הקטנתי מ-1.8em למובייל */
-            margin-bottom: 15px; /* הקטנתי מ-20px */
+            font-size: 1.1em;
+            margin-bottom: 20px;
             position: relative;
         }
         
         .quote-content {
-            font-size: 17px; /* הקטנתי מ-1.8em למובייל */
-            line-height: 1.6;
+            font-size: 1.1em;
+            line-height: 1.5;
         }
         
         .quote-symbol {
-            font-size: 1.8em; /* הגדלתי מ-1.6em למובייל */
+            font-size: 1.5em;
             color: rgba(255, 255, 255, 0.8);
-            margin: 0 6px; /* הקטנתי מ-8px */
+            margin: 0 8px;
             vertical-align: middle;
         }
         
@@ -1032,13 +408,12 @@
             background: linear-gradient(45deg, #8cb89c, #7AA689);
             color: white;
             border: none;
-            padding: 15px 25px; /* הקטנתי מ-18px 30px */
-            border-radius: 12px;
+            padding: 15px 30px;
+            border-radius: 10px;
             cursor: pointer;
-            font-size: 20px; /* הגדלתי מ-18px למובייל */
-            font-weight: 600;
+            font-size: 16px;
             width: 100%;
-            margin-top: 20px; /* הקטנתי מ-25px */
+            margin-top: 20px;
             transition: all 0.3s ease;
         }
         
@@ -1060,25 +435,25 @@
             background: #F9F5E6;
             border: 2px solid #D4B896;
             border-radius: 10px;
-            padding: 15px; /* הקטנתי מ-20px */
-            margin-bottom: 15px; /* הקטנתי מ-20px */
+            padding: 20px;
+            margin-bottom: 20px;
             text-align: center;
         }
         
         .pin-input {
             width: 200px;
-            padding: 12px; /* הקטנתי מ-15px */
+            padding: 15px;
             font-size: 24px;
             text-align: center;
             letter-spacing: 5px;
             border: 2px solid #8cb89c;
             border-radius: 10px;
-            margin: 8px; /* הקטנתי מ-10px */
+            margin: 10px;
         }
         
         /* Remember Me Checkbox Styling */
         .remember-me-box {
-            margin: 0 !important; /* צמצום הריווח למובייל עם !important */
+            margin: 3px 0;
             text-align: center;
         }
         
@@ -1087,9 +462,9 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            font-size: 17px; /* הגדלתי מ-15px למובייל */
+            font-size: 14px;
             color: #6b7280;
-            gap: 5px; /* הקטנתי מ-6px */
+            gap: 6px;
         }
         
         .remember-me-label input[type="checkbox"] {
@@ -1101,37 +476,37 @@
         }
         
         .remember-me-box p {
-            font-size: 14px; /* הגדלתי מ-12px למובייל */
+            font-size: 11px;
             color: #999;
-            margin: 0 !important; /* צמצום הריווח למובייל עם !important */
+            margin: 1px 0 0 0;
         }
         
         /* Google Sign-In Button Centering */
         .google-signin-btn {
             display: block;
-            margin: 0 auto 2px auto !important; /* צמצום הריווח למובייל עם !important */
+            margin: 0 auto 4px auto;
         }
         
         /* Reduce spacing between login cards */
         .login-card {
-            margin-bottom: 3px !important; /* הקטנתי מ-6px למובייל עם !important */
+            margin-bottom: 8px;
         }
         
         .login-card--google {
-            margin-bottom: 2px; /* הקטנתי מ-4px למובייל */
+            margin-bottom: 6px;
         }
         
         .login-card--local {
-            margin-top: 2px; /* הקטנתי מ-4px למובייל */
+            margin-top: 6px;
         }
         
         /* Reduce spacing within login cards */
         .login-card h3 {
-            margin-bottom: 4px; /* הקטנתי מ-6px למובייל */
+            margin-bottom: 6px;
         }
         
         .login-card p {
-            margin-bottom: 6px; /* הקטנתי מ-8px למובייל */
+            margin-bottom: 8px;
         }
         
         .help-modal {
@@ -1143,13 +518,13 @@
             height: 100%;
             background: rgba(0,0,0,0.5);
             z-index: 1001;
-            backdrop-filter: blur(3px); /* הקטנתי מ-5px למובייל */
+            backdrop-filter: blur(5px);
         }
         
         .help-content {
             background: white;
-            margin: 4% auto; /* הקטנתי מ-5% למובייל */
-            padding: 25px; /* הקטנתי מ-30px למובייל */
+            margin: 5% auto;
+            padding: 30px;
             border-radius: 20px;
             width: 90%;
             max-width: 700px;
@@ -1160,19 +535,19 @@
         
         .export-options {
             display: flex;
-            gap: 1px; /* הקטנתי מ-2px למובייל */
+            gap: 10px;
             flex-wrap: wrap;
-            margin-top: 1px; /* הקטנתי מ-2px למובייל */
+            margin-top: 10px;
         }
         
         .export-btn {
             background: linear-gradient(45deg, #c6b79b, #B9A488);
             color: white;
             border: none;
-            padding: 1px 3px; /* הקטנתי מ-2px 4px למובייל */
+            padding: 10px 15px;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 20px; /* הגדלתי מ-19px */
+            font-size: 14px;
             transition: all 0.3s ease;
         }
         
@@ -1190,13 +565,13 @@
             height: 100%;
             background: rgba(0,0,0,0.8);
             z-index: 1002;
-            backdrop-filter: blur(3px); /* הקטנתי מ-5px למובייל */
+            backdrop-filter: blur(5px);
         }
         
         .reference-content {
             background: white;
-            margin: 0.2% auto; /* הקטנתי מ-0.4% */
-            padding: 5px; /* הקטנתי מ-6px למובייל */
+            margin: 2% auto;
+            padding: 20px;
             border-radius: 20px;
             width: 95%;
             max-width: 1000px;
@@ -1236,7 +611,7 @@
             position: fixed;
             top: 0;
             left: -100%;
-            width: 100%; /* הגדלתי מ-98% */
+            width: 90%;
             max-width: 400px;
             height: 100%;
             background: #f8f9fa;
@@ -1252,7 +627,7 @@
         .meditations-panel-header {
             background: #98bfa6;
             color: white;
-            padding: 2px; /* הקטנתי מ-4px */
+            padding: 20px;
             text-align: center;
             position: sticky;
             top: 0;
@@ -1261,14 +636,14 @@
         
         .meditations-panel-header h2 {
             margin: 0;
-            font-size: 1.8em; /* הגדלתי מ-1.6em למובייל */
+            font-size: 1.3em;
             font-weight: 600;
         }
         
         .meditations-close-btn {
             position: absolute;
-            top: 12px; /* הקטנתי מ-15px */
-            right: 15px; /* הקטנתי מ-20px */
+            top: 15px;
+            right: 20px;
             background: none;
             border: none;
             color: white;
@@ -1289,14 +664,14 @@
         }
         
         .meditations-panel-body {
-            padding: 2px; /* הקטנתי מ-4px */
+            padding: 20px;
         }
         
         .emotions-panel-content {
             position: fixed;
             top: 0;
             left: -100%;
-            width: 100%; /* הגדלתי מ-98% */
+            width: 90%;
             max-width: 500px;
             height: 100%;
             background: #f8f9fa;
@@ -1312,7 +687,7 @@
         .emotions-panel-header {
             background: #98bfa6;
             color: white;
-            padding: 2px; /* הקטנתי מ-4px */
+            padding: 20px;
             text-align: center;
             position: sticky;
             top: 0;
@@ -1321,14 +696,14 @@
         
         .emotions-panel-header h2 {
             margin: 0;
-            font-size: 1.4em; /* הגדלתי מ-1.6em למובייל */
+            font-size: 1.3em;
             font-weight: 600;
         }
         
         .emotions-close-btn {
             position: absolute;
-            top: 12px; /* הקטנתי מ-15px */
-            right: 15px; /* הקטנתי מ-20px */
+            top: 15px;
+            right: 20px;
             background: none;
             border: none;
             color: white;
@@ -1349,22 +724,7 @@
         }
         
         .emotions-panel-body {
-            padding: 2px; /* הקטנתי מ-4px */
-        }
-        
-        /* Emotions panel content styling */
-        .emotions-panel-body h3 {
-            font-size: 1.4em;
-            margin-bottom: 10px;
-        }
-        
-        .emotions-panel-body p {
-            font-size: 16px;
-            line-height: 1.6;
-        }
-        
-        .emotions-panel-body strong {
-            font-size: 16px;
+            padding: 20px;
         }
         
         /* New Side Panel for Needs Reference */
@@ -1384,7 +744,7 @@
             position: fixed;
             top: 0;
             left: -100%;
-            width: 100%; /* הגדלתי מ-98% */
+            width: 90%;
             max-width: 500px;
             height: 100%;
             background: #f8f9fa;
@@ -1400,7 +760,7 @@
         .needs-panel-header {
             background: #98bfa6;
             color: white;
-            padding: 2px; /* הקטנתי מ-4px */
+            padding: 20px;
             text-align: center;
             position: sticky;
             top: 0;
@@ -1409,14 +769,14 @@
         
         .needs-panel-header h2 {
             margin: 0;
-            font-size: 1.4em; /* הגדלתי מ-1.6em למובייל */
+            font-size: 1.3em;
             font-weight: 600;
         }
         
         .needs-close-btn {
             position: absolute;
-            top: 12px; /* הקטנתי מ-15px */
-            right: 15px; /* הקטנתי מ-20px */
+            top: 15px;
+            right: 20px;
             background: none;
             border: none;
             color: white;
@@ -1437,27 +797,12 @@
         }
         
         .needs-panel-body {
-            padding: 2px; /* הקטנתי מ-4px */
-        }
-        
-        /* Needs panel content styling */
-        .needs-panel-body h3 {
-            font-size: 1.4em;
-            margin-bottom: 10px;
-        }
-        
-        .needs-panel-body p {
-            font-size: 16px;
-            line-height: 1.6;
-        }
-        
-        .needs-panel-body strong {
-            font-size: 16px;
+            padding: 20px;
         }
         
         .meditations-category {
-            margin-bottom: 8px; /* הקטנתי מ-10px */
-            padding: 1px; /* הקטנתי מ-2px */
+            margin-bottom: 25px;
+            padding: 15px;
             background: white;
             border-radius: 12px;
             border-left: 4px solid #98bfa6;
@@ -1466,16 +811,16 @@
         
         .meditations-category h3 {
             color: #4a5568;
-            margin-bottom: 2px; /* הקטנתי מ-3px */
-            font-size: 1.4em; /* הגדלתי מ-1.8em למובייל */
+            margin-bottom: 12px;
+            font-size: 1.1em;
             font-weight: 600;
         }
         
         .meditations-link {
             color: #4a5568;
             text-decoration: none;
-            font-size: 16px; /* הקטנתי מ-24px למובייל */
-            padding: 3px 6px; /* הגדלתי מ-1px 3px למובייל */
+            font-size: 14px;
+            padding: 10px 12px;
             margin: 0;
             display: block;
             border-radius: 8px;
@@ -1493,8 +838,8 @@
         
         .favorite-circle {
             cursor: pointer;
-            font-size: 16px; /* הקטנתי מ-24px למובייל */
-            margin-left: 2px; /* הקטנתי מ-3px */
+            font-size: 18px;
+            margin-left: 10px;
             color: #D3D3D3;
             transition: all 0.3s ease;
             user-select: none;
@@ -1512,10 +857,10 @@
             background: #98bfa6;
             color: white;
             border: none;
-            padding: 1px 3px; /* הקטנתי מ-2px 4px */
+            padding: 8px 16px;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 17px; /* הקטנתי מ-20px למובייל */
+            font-size: 14px;
             transition: all 0.3s ease;
         }
         
@@ -1532,7 +877,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin: 0.125px 0; /* הקטנתי מ-0.25px */
+            margin: 6px 0;
         }
         
         .reference-image {
@@ -1546,35 +891,54 @@
         .login-title {
             font-family: 'Varela Round', 'Alef', 'Heebo', 'Rubik', 'Assistant', sans-serif;
             color: #374151;
-            font-size: 19px; /* הקטנתי מ-21px למובייל */
+            font-size: 16px;
             font-weight: 600;
             text-align: center;
-            margin: 4px 0 15px 0; /* הקטנתי מ-6px 0 20px 0 */
-            line-height: 1.4;
+            margin: 6px 0 18px 0;
         }
         .welcome-title {
             font-family: 'Varela Round', 'Alef', 'Heebo', 'Rubik', 'Assistant', sans-serif;
             color: #C86F7B;
-            font-size: 23px; /* הגדלתי מ-21px למובייל */
+            font-size: 18px;
             font-weight: 700;
             text-align: center;
-            margin: -4px 0 6px 0; /* הקטנתי מ--6px 0 8px 0 */
+            margin: -6px 0 6px 0;
         }
-        /* CSS כפול נמחק - משתמשים רק ב-CSS בשורות 1115-1132 */
+        .login-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            text-align: right;
+        }
+        .login-card--google h3,
+        .login-card--local h3 {
+            font-size: 15px;
+            color: #374151;
+            margin-bottom: 6px;
+        }
+        .login-card--google p,
+        .login-card--local p {
+            color: #6b7280;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+        .login-card--local { border-color: #cfe0d6; }
         .pin-box {
             background: #f5efe1;
             border: 1px solid #e6d7b9;
             border-radius: 10px;
-            padding: 10px 10px 4px 10px; /* הקטנתי מ-12px 12px 6px 12px למובייל */
-            margin: 8px 0 4px 0; /* הקטנתי מ-10px 0 6px 0 למובייל */
+            padding: 12px 12px 6px 12px;
+            margin: 10px 0 6px 0;
         }
         .privacy-note {
             background: #d4e5da;
             border-radius: 10px;
-            padding: 12px; /* הקטנתי מ-14px למובייל */
+            padding: 14px;
             font-size: 13px;
             color: #4b5563;
-            margin-top: 8px; /* הקטנתי מ-10px למובייל */
+            margin-top: 10px;
         }
 
         /* Calendar hint spacing under greeting and above month */
@@ -1584,222 +948,45 @@
             text-align: center;
             color: #6b7280;
             font-weight: 700;
-            font-size: 16px; /* מותאם למובייל לפי הנחיות */
-            margin-top: 8px;   /* הקטנתי מ-10px למובייל */
-            margin-bottom: 18px; /* הקטנתי מ-20px למובייל */
+            font-size: 16px;
+            margin-top: 10px;   /* 10px under the greeting */
+            margin-bottom: 35px; /* 35px above the month title */
         }
         
         @media (max-width: 768px) {
             .calendar {
-                font-size: 1.8em; /* הגדלתי מ-1.6em למובייל */
+                font-size: 0.9em;
             }
             
             .calendar-day {
-                min-height: 65px; /* הגדלתי מ-60px */
-                padding: 8px; /* הקטנתי מ-10px */
+                min-height: 60px;
+                padding: 10px;
             }
             
             .modal-content {
                 width: 95%;
-                margin: 3% auto; /* הקטנתי מ-5% */
-                padding: 18px; /* הקטנתי מ-20px */
+                margin: 5% auto;
+                padding: 20px;
             }
             
             .container {
-                padding: 15px; /* הקטנתי מ-20px */
+                padding: 20px;
             }
             
             .header {
-                margin-bottom: 25px; /* הקטנתי מ-30px למובייל */
+                margin-bottom: 80px;
             }
             
             /* keep actions fixed on mobile too */
             
             .export-options {
                 justify-content: center;
-                margin-top: 4px; /* הקטנתי מ-6px למובייל */
+                margin-top: 10px;
             }
             
             .header h1 {
-                font-size: 2.8em; /* הגדלתי מ-2.5em */
-                margin-bottom: 6px; /* הקטנתי מ-8px למובייל */
-            }
-        }
-
-        /* Mobile-first responsive design improvements */
-        @media (max-width: 480px) {
-            /* General mobile improvements */
-            body {
-                padding: 10px;
-                font-size: 20px; /* הגדלתי מ-18px למובייל */
-            }
-            
-            .container {
-                padding: 12px; /* הקטנתי מ-15px */
-                border-radius: 15px;
-            }
-            
-            /* Header improvements for mobile */
-            .header h1 {
-                font-size: 2.5em; /* הגדלתי מ-2.2em */
-                margin-bottom: 8px; /* הקטנתי מ-12px */
-            }
-            
-            .header p {
-                font-size: 1.9em; /* הגדלתי מ-1.7em למובייל */
-            }
-            
-            /* Calendar improvements for mobile */
-            .calendar-day {
-                min-height: 70px;
-                padding: 10px 6px; /* הקטנתי מ-12px 8px */
-            }
-            
-            .day-number {
-                font-size: 1.4em; /* מותאם למובייל לפי הנחיות */
-            }
-            
-            /* Modal improvements for mobile - CRITICAL for calendar popup */
-            .modal-content {
-                width: 98%;
-                margin: 1% auto; /* הקטנתי מ-2% */
-                padding: 20px 15px; /* הקטנתי מ-25px 20px */
-                max-height: 95vh;
-                border-radius: 15px;
-            }
-            
-            .modal h2 {
-                font-size: 2em; /* הגדלתי מ-1.8em למובייל */
-                margin-bottom: 15px; /* הקטנתי מ-18px */
-            }
-            
-            /* Section improvements for mobile */
-            .section {
-                padding: 15px 12px; /* הקטנתי מ-18px 15px */
-                margin-bottom: 12px; /* הקטנתי מ-15px למובייל */
-                border-radius: 12px;
-            }
-            
-            .section h3 {
-                font-size: 2em; /* הגדלתי מ-1.8em למובייל */
-                margin-bottom: 8px; /* הקטנתי מ-10px למובייל */
-            }
-            
-            /* Mood selector improvements for mobile */
-            .mood-selector {
-                gap: 6px; /* הקטנתי מ-8px */
-                margin-bottom: 12px; /* הקטנתי מ-15px למובייל */
-            }
-            
-            .mood-btn {
-                padding: 10px 14px; /* הקטנתי מ-12px 16px */
-                font-size: 1.9em; /* הגדלתי מ-1.7em למובייל */
-                border-radius: 20px;
-                min-width: 75px; /* הקטנתי מ-80px */
-            }
-            
-            /* Textarea and input improvements for mobile */
-            textarea, input {
-                padding: 15px; /* הקטנתי מ-18px */
-                font-size: 20px; /* הגדלתי מ-18px */
-                min-height: 100px; /* הקטנתי מ-120px */
-                border-radius: 12px;
-            }
-            
-            /* Button improvements for mobile */
-            .save-btn {
-                padding: 15px 20px; /* הקטנתי מ-18px 25px */
-                font-size: 20px; /* הגדלתי מ-18px */
-                border-radius: 12px;
-                margin-top: 15px; /* הקטנתי מ-20px למובייל */
-            }
-            
-            .reference-btn {
-                padding: 8px 15px; /* הקטנתי מ-10px 18px */
-                font-size: 18px; /* הגדלתי מ-16px למובייל */
-                margin-right: 4px; /* הקטנתי מ-6px למובייל */
-                margin-bottom: 4px; /* הקטנתי מ-6px למובייל */
-            }
-            
-            /* Close button improvements for mobile */
-            .close {
-                font-size: 32px;
-                top: 8px; /* הקטנתי מ-10px למובייל */
-                left: 12px; /* הקטנתי מ-15px למובייל */
-            }
-            
-            /* Breathing exercise improvements for mobile */
-            .breathing-circle {
-                width: 120px;
-                height: 120px;
-                font-size: 1.9em; /* הגדלתי מ-1.7em למובייל */
-            }
-            
-            .breathing-btn {
-                font-size: 22px !important; /* הגדלתי מ-20px */
-            }
-        }
-
-        /* Extra small mobile devices */
-        @media (max-width: 360px) {
-            .container {
-                padding: 10px; /* הקטנתי מ-12px */
-            }
-            
-            .modal-content {
-                padding: 18px 12px; /* הקטנתי מ-20px 15px */
-            }
-            
-            .section {
-                padding: 10px 8px; /* הקטנתי מ-12px 10px למובייל קטן */
-            }
-            
-            .mood-btn {
-                padding: 8px 12px; /* הקטנתי מ-10px 14px */
-                font-size: 2em; /* הגדלתי מ-1.8em למובייל */
-                min-width: 65px; /* הקטנתי מ-70px */
-            }
-            
-            textarea, input {
-                padding: 12px; /* הקטנתי מ-15px */
-                font-size: 20px; /* הגדלתי מ-18px למובייל */
-            }
-            
-            .save-btn {
-                padding: 14px 18px; /* הקטנתי מ-16px 20px */
-                font-size: 20px; /* הגדלתי מ-18px למובייל */
-            }
-        }
-
-        /* Landscape orientation improvements for mobile */
-        @media (max-width: 768px) and (orientation: landscape) {
-            .modal-content {
-                margin: 0.5% auto; /* הקטנתי מ-1% */
-                max-height: 98vh;
-                padding: 15px; /* הוספתי padding מותאם */
-            }
-            
-            .calendar-day {
-                min-height: 55px; /* הגדלתי מ-50px */
-                padding: 6px; /* הקטנתי מ-8px */
-            }
-            
-            /* Landscape specific improvements */
-            .header {
-                margin-bottom: 25px; /* הקטנתי מ-30px עבור landscape */
-            }
-            
-            .section {
-                padding: 10px 8px; /* הקטנתי מ-12px 10px עבור landscape */
-                margin-bottom: 10px; /* הקטנתי מ-12px עבור landscape */
-            }
-        }
-
-        /* High DPI displays improvements */
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            .mood-btn, .save-btn, .reference-btn {
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
+                font-size: 2.5em;
+                margin-bottom: 15px;
             }
         }
 
@@ -1823,7 +1010,6 @@
             border-radius: 8px;
         }
 
-        /* Simplified focus state for mobile */
         .hamburger:focus {
             outline: 2px solid rgba(0,0,0,0.1);
             outline-offset: 2px;
@@ -1849,7 +1035,7 @@
             transform: translateX(100%);
             transition: transform 0.3s ease;
             z-index: 1101;
-            padding: 18px; /* הקטנתי מ-20px למובייל */
+            padding: 20px;
         }
 
         .side-menu.open {
@@ -1870,7 +1056,7 @@
         .side-menu .menu-list {
             list-style: none;
             margin: 0;
-            padding: 35px 0 0 0; /* הקטנתי מ-40px למובייל */
+            padding: 40px 0 0 0;
         }
 
         .side-menu .menu-item {
@@ -1880,7 +1066,7 @@
             border: none;
             color: #3a3a3a;
             font-size: 16px;
-            padding: 10px 4px; /* הקטנתי מ-12px 4px למובייל */
+            padding: 12px 4px;
             cursor: pointer;
         }
 
@@ -1891,12 +1077,12 @@
         .menu-divider {
             border: none;
             border-top: 1px solid #eeeeee;
-            margin: 6px 0; /* הקטנתי מ-8px למובייל */
+            margin: 8px 0;
         }
         
         .section-content {
             display: none;
-            padding: 18px; /* הקטנתי מ-20px למובייל */
+            padding: 20px;
             background: white;
             border-radius: 0 0 10px 10px;
             margin-top: -10px;
@@ -1912,7 +1098,7 @@
             background: #98bfa6;
             color: white;
             border: none;
-            padding: 10px 20px; /* הקטנתי מ-12px 24px למובייל */
+            padding: 12px 24px;
             border-radius: 10px;
             cursor: pointer;
             font-size: 16px;
@@ -1950,7 +1136,7 @@
         }
         
         .meditation-category {
-            margin-bottom: 25px; /* הקטנתי מ-30px למובייל */
+            margin-bottom: 30px;
             padding: 20px;
             background: #faf5ff;
             border-radius: 15px;
@@ -1960,7 +1146,7 @@
         .meditation-category h3 {
             color: #6b46c1;
             margin-bottom: 15px;
-            font-size: 1.4em; /* הגדלתי מ-1.6em למובייל */
+            font-size: 1.2em;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -1984,36 +1170,6 @@
             text-decoration: underline;
             color: #C86F7B;
         }
-        
-        /* Emotions modal content styling */
-        #emotionsModal h3 {
-            font-size: 1.4em;
-            margin-bottom: 10px;
-        }
-        
-        #emotionsModal p {
-            font-size: 16px;
-            line-height: 1.6;
-        }
-        
-        #emotionsModal strong {
-            font-size: 16px;
-        }
-        
-        /* Needs modal content styling */
-        #needsModal h3 {
-            font-size: 1.4em;
-            margin-bottom: 10px;
-        }
-        
-        #needsModal p {
-            font-size: 16px;
-            line-height: 1.6;
-        }
-        
-        #needsModal strong {
-            font-size: 16px;
-        }
     </style>
 </head>
 <body>
@@ -2024,21 +1180,20 @@
             <img id="logoImage" 
                  src="logo.png" 
                  alt="אל עצמי - מסע של הקשבה והתרחבות הלב" 
-                 style="max-width: 350px; width: 80%; height: auto; margin: 20px auto -10px; display: block;"
+                 style="max-width: 350px; width: 80%; height: auto; margin: 20px auto 30px; display: block;"
                  onerror="this.style.display='none'; document.getElementById('fallbackTitle').style.display='block';">
             <div id="fallbackTitle" style="display: none;">
-                <h1>אל עצמי</h1>
                 <p>מסע של הקשבה והתרחבות הלב</p>
             </div>
         </div>
         
         <div style="max-width: 520px; margin: 0 auto; text-align: center;">
-                                    <div class="welcome-title" style="margin-bottom: 1px;">ברוכה הבאה 🌸</div>
-                        <div class="login-title" style="margin-bottom: 18px;">איך תרצי להתחבר כדי לצאת למסע שלך?</div>
-                        <div class="login-card login-card--google" style="margin-bottom: 2px;">
-                                        <h3 style="margin-bottom: 4px; text-align: right;">(מומלץ) התחברות עם Google</h3>
-                        <p style="margin-bottom: 6px; text-align: right;">הנתונים שלך נשמרים בענן וזמינים מכל מכשיר</p>
-                        <button id="googleFallbackBtn" class="google-signin-btn" onclick="handleGoogleSignIn()" style="margin-bottom: 2px;">
+            <div class="welcome-title" style="margin-bottom: 8px;">ברוכה הבאה 🌸</div>
+            <div class="login-title" style="margin-bottom: 15px;">איך תרצי להתחבר כדי לצאת למסע שלך?</div>
+                        <div class="login-card login-card--google">
+                <h3 style="margin-bottom: 4px;">(מומלץ) התחברות עם Google</h3>
+                <p style="margin-bottom: 6px;">הנתונים שלך נשמרים בענן וזמינים מכל מכשיר</p>
+                <button id="googleFallbackBtn" class="google-signin-btn" onclick="handleGoogleSignIn()">
                     <svg class="google-icon" viewBox="0 0 24 24">
                         <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                         <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -2049,41 +1204,41 @@
                 </button>
                 
                 <!-- Remember Me Checkbox for Google -->
-                <div class="remember-me-box" style="margin-top: 2px;">
+                <div class="remember-me-box">
                     <label class="remember-me-label">
                         <input type="checkbox" id="rememberMeGoogleCheckbox">
                         <span>השאר אותי מחוברת</span>
                     </label>
-                    <p style="margin: 0;">תישארי מחוברת גם אחרי סגירת הדפדפן</p>
+                    <p>תישארי מחוברת גם אחרי סגירת הדפדפן</p>
                 </div>
                 
-                <p style="font-size: 14px; color: #666; margin: 0;">הנתונים ייקשרו לחשבון ה‑Google שלך</p>
+                <p style="font-size: 12px; color: #666; margin-top: 2px;">הנתונים ייקשרו לחשבון ה‑Google שלך</p>
             </div>
-            <div class="login-card login-card--local" style="margin-bottom: 2px; margin-top: 20px;">
-                <h3 style="margin-bottom: 4px; text-align: right;">שימוש מקומי בלבד</h3>
-                <p style="margin-bottom: 6px; text-align: right;">הנתונים יישמרו רק במכשיר הזה</p>
+            <div class="login-card login-card--local">
+                <h3 style="margin-bottom: 4px;">שימוש מקומי בלבד</h3>
+                <p style="margin-bottom: 6px;">הנתונים יישמרו רק במכשיר הזה</p>
                 <div class="section" style="background: white; border: none; padding: 0;">
-                    <input type="text" id="usernameInput" placeholder="...השם שלי" style="min-height: 50px; text-align: center; font-size: 15px;">
+                    <input type="text" id="usernameInput" placeholder="...השם שלי" style="min-height: 50px; text-align: center; font-size: 18px;">
                 </div>
                 <div class="pin-box">
                     <h4 style="margin: 0 0 8px 0; color:#6b7280;">🔐 הגנה עם סיסמא (אופציונלי)</h4>
                     <input type="password" id="pinInput" class="pin-input" placeholder="****" maxlength="8" pattern="[0-9]{4,8}" style="margin: 6px auto; display:block;">
-                    <p style="font-size: 14px; color: #666; text-align:center; margin: 2px 0 0 0;">השאירי ריק אם את לא רוצה סיסמא</p>
+                    <p style="font-size: 12px; color: #666; text-align:center; margin: 4px 0 0 0;">השאירי ריק אם את לא רוצה סיסמא</p>
                 </div>
                 
                 <!-- Remember Me Checkbox -->
-                <div class="remember-me-box" style="margin-top: 4px;">
+                <div class="remember-me-box">
                     <label class="remember-me-label">
                         <input type="checkbox" id="rememberMeCheckbox">
                         <span>השאר אותי מחוברת</span>
                     </label>
-                    <p style="margin: 2px 0 0 0;">תישארי מחוברת גם אחרי סגירת הדפדפן</p>
+                    <p>תישארי מחוברת גם אחרי סגירת הדפדפן</p>
                 </div>
                 
                 <button class="save-btn" onclick="login()" style="margin-top: 4px;">התחלי ללא סנכרון ✍️</button>
             </div>
 
-            <div class="privacy-note" style="margin-top: 1px;">
+            <div class="privacy-note">
                 <strong>🔒 פרטיות מלאה:</strong><br>
                 בכניסה עם Google - הנתונים נשמרים בחשבון Google Drive הפרטי שלך<br>
                 בכניסה מקומית - הנתונים נשמרים רק במכשיר הזה
@@ -2280,7 +1435,7 @@
             </div>
             <div class="meditations-panel-body">
                 
-                <p style="margin: 0 0 15px 0; color: #718096; font-size: 16px; text-align: center;">בחרי המדיטציות שתרצי לחזור אליהן והוסיפי למועדפים</p>
+                <p style="margin: 0 0 15px 0; color: #718096; font-size: 14px; text-align: center;">בחרי המדיטציות שתרצי לחזור אליהן והוסיפי למועדפים</p>
                 
                 <!-- שחרור לחץ וחרדה -->
                 <div class="meditations-category">
@@ -2662,7 +1817,7 @@
     <div id="emotionsModal" class="reference-modal">
         <div class="reference-content">
             <span class="close" onclick="closeEmotionsReference()" style="position: absolute; top: 15px; left: 25px;">&times;</span>
-            <h2 style="margin-bottom: 20px; color: #4a5568; font-size: 1.4em;">רשימת רגשות</h2>
+            <h2 style="margin-bottom: 20px; color: #4a5568;">רשימת רגשות</h2>
             <div style="text-align: right; line-height: 2; padding: 20px; background: #f9f9f9; border-radius: 15px; max-height: 70vh; overflow-y: auto;">
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
                     <div>
@@ -2856,7 +2011,7 @@
     <div id="needsModal" class="reference-modal">
         <div class="reference-content">
             <span class="close" onclick="closeNeedsReference()" style="position: absolute; top: 15px; left: 25px;">&times;</span>
-            <h2 style="margin-bottom: 20px; color: #4a5568; font-size: 1.4em;">רשימת צרכים</h2>
+            <h2 style="margin-bottom: 20px; color: #4a5568;">רשימת צרכים</h2>
             <div style="text-align: right; line-height: 2; padding: 20px; background: #f9f9f9; border-radius: 15px; max-height: 70vh; overflow-y: auto;">
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
                     <div>
@@ -2877,7 +2032,7 @@
                     </div>
                     <div>
                         <h3 style="color: #C86F7B; margin-bottom: 10px;">💞 חיבור</h3>
-                        <p>אדיבות, רגישות, רכות, עדינות, קבלה, הכלה, נתינה, לחלוק, להיות מובן (הבנה), להבין, להישמע (הקשבה), לשמוע, להיראות (נראות), לראות, ידיעה, עזרה, תמיכה, הזנה, המשכיות, עקביות, כבוד, הדדיות, השתתפות, להיות חלק, הכללה, שותפות, רעות, ידידות, חברות, קהילה, שייכות, פתיחות, אמון, שיתוף פעולה, שיתופיות, תשומת לב, הכרה, הערכה, חיבה, אישור, עידוד, אמפתיה, חמלה, אינטימיות, קרבה, אהבה, טיפוח, אכפתיות</p>
+                        <p>אדיבות, רגישות, רכות, עדינות, קבלה, הכלה, נתינה, לחלוק, להיות מובן (הבנה), להבין, להישמע (הקשבה), לשמוע, להיראות (נראות), לראות, ידיעה, עזרה, תמיכה, הזנה, המשכיות, עקביות, כבוד, הדדיות, השתתפות, להיות חלק, הכללה, שותפות, רעות, ידידות, חברות, קהילה, שייכות, פתיחות, אמון, שיתוף פעולה, שיתופיות, תקשורת, תשומת לב, הכרה, הערכה, חיבה, אישור, עידוד, אמפתיה, חמלה, אינטימיות, קרבה, אהבה, טיפוח, אכפתיות</p>
                     </div>
                     <div>
                         <h3 style="color: #8cb89c; margin-bottom: 10px;">🏃‍♀️ חוויה גופנית</h3>
@@ -2923,7 +2078,7 @@
                         </div>
                         <div>
                             <h3 style="color: #C86F7B; margin-bottom: 10px;">💞 חיבור</h3>
-                            <p>אדיבות, רגישות, רכות, עדינות, קבלה, הכלה, נתינה, לחלוק, להיות מובן (הבנה), להבין, להישמע (הקשבה), לשמוע, להיראות (נראות), לראות, ידיעה, עזרה, תמיכה, הזנה, המשכיות, עקביות, כבוד, הדדיות, השתתפות, להיות חלק, הכללה, שותפות, רעות, ידידות, חברות, קהילה, שייכות, פתיחות, אמון, שיתוף פעולה, שיתופיות, תשומת לב, הכרה, הערכה, חיבה, אישור, עידוד, אמפתיה, חמלה, אינטימיות, קרבה, אהבה, טיפוח, אכפתיות</p>
+                            <p>אדיבות, רגישות, רכות, עדינות, קבלה, הכלה, נתינה, לחלוק, להיות מובן (הבנה), להבין, להישמע (הקשבה), לשמוע, להיראות (נראות), לראות, ידיעה, עזרה, תמיכה, הזנה, המשכיות, עקביות, כבוד, הדדיות, השתתפות, להיות חלק, הכללה, שותפות, רעות, ידידות, חברות, קהילה, שייכות, פתיחות, אמון, שיתוף פעולה, שיתופיות, תקשורת, תשומת לב, הכרה, הערכה, חיבה, אישור, עידוד, אמפתיה, חמלה, אינטימיות, קרבה, אהבה, טיפוח, אכפתיות</p>
                         </div>
                         <div>
                             <h3 style="color: #8cb89c; margin-bottom: 10px;">🏃‍♀️ חוויה גופנית</h3>
@@ -2971,23 +2126,22 @@
             <img id="mainAppLogo" 
                  src="logo.png" 
                  alt="אל עצמי - מסע של הקשבה והתרחבות הלב" 
-                 style="max-width: 300px; width: 60%; height: auto; margin: 0 auto -10px; display: block; position: relative; z-index: 2;"
+                 style="max-width: 300px; width: 60%; height: auto; margin: 0 auto 20px; display: block;"
                  onerror="this.style.display='none';">
-            <h1 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1; color: rgba(140, 184, 156, 0.3); font-size: 2.5em; margin: 0; pointer-events: none;">אל עצמי</h1>
-            <p style="padding-top: 0px !important; margin: 0 !important;"><span style="color: #C86F7B; font-weight: bold; font-size: 16px;">שלום <span id="currentUser"></span>!</span> <span style="font-size: 16px;">💜</span></p>
+            <p><span style="color: #C86F7B; font-weight: bold;">שלום <span id="currentUser"></span>!</span> 💜</p>
             <div class="header-actions">
                 <button class="hamburger" aria-label="תפריט" onclick="openMenu()">☰</button>
             </div>
             <input type="file" id="fileInput" accept=".json" style="display: none;" onchange="handleFileImport(this)">
         </div>
         
-        <div style="text-align: center; margin-bottom: 8px;">
+        <div style="text-align: center; margin-bottom: 20px;">
             <p class="calendar-hint">בחרי יום וקחי רגע קט — להתקרב אל עצמך</p>
-            <div class="month-year" id="monthYear" style="font-size: 1.4em; font-weight: 700; color: #737373; margin-bottom: 15px;"></div>
+            <div class="month-year" id="monthYear" style="font-size: 2em; font-weight: 700; color: #737373; margin-bottom: 15px;"></div>
             <div class="calendar-nav" style="display: flex; justify-content: center; gap: 15px;">
-                <button class="nav-btn" onclick="changeMonth(-1)" style="font-size: 16px; padding: 12px 16px;">→ חודש קודם</button>
-                <button class="nav-btn" onclick="goToToday()" style="font-size: 16px; padding: 12px 16px;">היום</button>
-                <button class="nav-btn" onclick="changeMonth(1)" style="font-size: 16px; padding: 12px 16px;">חודש הבא ←</button>
+                <button class="nav-btn" onclick="changeMonth(-1)">→ חודש קודם</button>
+                <button class="nav-btn" onclick="goToToday()">היום</button>
+                <button class="nav-btn" onclick="changeMonth(1)">חודש הבא ←</button>
             </div>
         </div>
         
@@ -3036,7 +2190,7 @@
                 <div class="section-header">
                 <h3>💝 הכרת תודה</h3>
                 </div>
-                <p style="margin-bottom: 15px; color: #666; font-size: 16px;">רשמי שלושה דברים ששימחו, ריגשו או גרמו לך להרגשה טובה. זכרי להודות גם לעצמך!</p>
+                <p style="margin-bottom: 15px; color: #666;">רשמי שלושה דברים ששימחו, ריגשו או גרמו לך להרגשה טובה. זכרי להודות גם לעצמך!</p>
                 <textarea id="gratitude" placeholder="1. משהו שהיה טוב היום...&#10;2. משהו שאני מעריכה בעצמי...&#10;3. מישהו או משהו שאני אסירת תודה עליו..."></textarea>
             </div>
             
@@ -3060,7 +2214,7 @@
                     <h3>🧘‍♀️ רגע של מדיטציה</h3>
                 </div>
                 <div class="section-content">
-                    <p style="margin-bottom: 15px; color: #666; font-size: 16px;">
+                    <p style="margin-bottom: 15px; color: #666; font-size: 14px;">
                         כאן תמצאי מגוון מדיטציות שיעזרו לך לעצור לרגע, לנשום ולהתחבר לעצמך. 
                         פשוט בחרי את מה שמתאים לך עכשיו ותני לעצמך רגע של שקט ורוגע.
                     </p>
@@ -3084,37 +2238,37 @@
                     <h3>💬 ניתוח סיטואציה – מודל תקשורת מקרבת</h3>
                 </div>
                 <div class="section-content">
-                    <p style="margin-bottom: 20px; color: #666; font-size: 16px;">מודל CNVC (תקשורת מקרבת) לניתוח מצבים רגשיים</p>
+                    <p style="margin-bottom: 20px; color: #666; font-size: 14px;">מודל CNVC (תקשורת מקרבת) לניתוח מצבים רגשיים</p>
                     
                     <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
-                        <h4 style="color: #8cb89c; margin-bottom: 10px; font-size: 1.4em;">🔍 תצפית</h4>
-                        <p style="font-size: 16px; color: #666; margin-bottom: 10px;"> תארי את הסיטואציה שקרתה, בלי פרשנות או שיפוט.</p>
+                        <h4 style="color: #8cb89c; margin-bottom: 10px;">🔍 תצפית</h4>
+                        <p style="font-size: 13px; color: #666; margin-bottom: 10px;"> תארי את הסיטואציה שקרתה, בלי פרשנות או שיפוט.</p>
                         <textarea id="observation" placeholder="מה בדיוק קרה? תיאור עובדתי..."></textarea>
                     </div>
                     
                     <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
                         <div class="section-header">
-                            <h4 style="color: #8cb89c; margin: 0; font-size: 1.4em;">💙 רגש</h4>
+                            <h4 style="color: #8cb89c; margin: 0;">💙 רגש</h4>
                             <button class="reference-btn" onclick="showEmotionsReference()">רשימת רגשות</button>
                         </div>
-                        <p style="font-size: 16px; color: #666; margin-bottom: 10px;"> אילו רגשות עולים בך? בחרי מרשימת הרגשות.</p>
+                        <p style="font-size: 13px; color: #666; margin-bottom: 10px;"> אילו רגשות עולים בך? בחרי מרשימת הרגשות.</p>
                         <textarea id="feeling" placeholder="אני מרגישה... (כועסת, מוטרדת, מאוכזבת וכו')"></textarea>
                     </div>
                     
                     <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
                         <div class="section-header">
-                            <h4 style="color: #8cb89c; margin: 0; font-size: 1.4em;">🎯 צורך</h4>
+                            <h4 style="color: #8cb89c; margin: 0;">🎯 צורך</h4>
                             <button class="reference-btn" onclick="showNeedsReference()">רשימת צרכים</button>
                         </div>
-                        <p style="font-size: 16px; color: #666; margin-bottom: 10px;"> אילו צרכים מסתתרים מאחורי הרגש הזה? בחרי מרשימת הצרכים.</p>
+                        <p style="font-size: 13px; color: #666; margin-bottom: 10px;"> אילו צרכים מסתתרים מאחורי הרגש הזה? בחרי מרשימת הצרכים.</p>
                         <textarea id="need" placeholder="אני צריכה... (כבוד, הבנה, ביטחון, סדר וכו')"></textarea>
                     </div>
                     
                     <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
-                        <h4 style="color: #8cb89c; margin-bottom: 10px; font-size: 1.4em;">🙏 בקשה</h4>
-                        <p style="font-size: 16px; color: #666; margin-bottom: 10px;"> כתבי בצורה ברורה, ספציפית וחיובית מה את מבקשת. הניסוח צריך להיות שאלה ולא דרישה או אולטימטום.</p>
+                        <h4 style="color: #8cb89c; margin-bottom: 10px;">🙏 בקשה</h4>
+                        <p style="font-size: 13px; color: #666; margin-bottom: 10px;"> כתבי בצורה ברורה, ספציפית וחיובית מה את מבקשת. הניסוח צריך להיות שאלה ולא דרישה או אולטימטום.</p>
                         <textarea id="request" placeholder="האם תוכלי בבקשה...? / האם אפשר...?"></textarea>
-                        <div style="background: #f0f8ff; padding: 10px; border-radius: 8px; margin-top: 10px; font-size: 15px; color: #666;">
+                        <div style="background: #f0f8ff; padding: 10px; border-radius: 8px; margin-top: 10px; font-size: 12px; color: #666;">
                             <strong>💡 דוגמה:</strong><br>
                             <em>"כשלקחת את הטלפון שלי בלי לשאול (תצפית) הרגשתי מתוסכלת ומאוכזבת (רגש) כי חשוב לי לקבל התחשבות והסכמה לפני שמשתמשים בדברים שלי (צורך). האם תוכלי בבקשה לשאול אותי מראש לפני שאת משתמשת בטלפון שלי? (בקשה)"</em>
                         </div>
@@ -3127,59 +2281,59 @@
                     <h3>🔍 זיהוי דפוסים רגשיים - תיאוריית זיהוי תבניות</h3>
                 </div>
                 <div class="section-content">
-                    <h4 style="color: #667eea; margin-bottom: 15px; font-size: 1.4em;">אני עוצרת רגע לבדוק עם עצמי - האם זה קורה לי שוב?</h4>
+                    <h4 style="color: #667eea; margin-bottom: 15px;">אני עוצרת רגע לבדוק עם עצמי - האם זה קורה לי שוב?</h4>
                     
                     <div style="margin-bottom: 15px;">
-                        <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px; font-size: 16px;">איך הגבתי לסיטואציה הזאת?</label>
+                        <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px;">איך הגבתי לסיטואציה הזאת?</label>
                         <textarea id="reaction_response" placeholder="תארי את התגובה שלך..."></textarea>
                     </div>
                     
                     <div style="margin-bottom: 15px;">
-                        <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px; font-size: 16px;">האם קרה לי משהו דומה בעבר?</label>
+                        <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px;">האם קרה לי משהו דומה בעבר?</label>
                         <textarea id="similar_past" placeholder="האם היו מצבים דומים? מה קרה?"></textarea>
                     </div>
                     
                     <div style="margin-bottom: 15px;">
-                        <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px; font-size: 16px;">איך אני מרגישה אחרי התגובה שלי?</label>
+                        <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px;">איך אני מרגישה אחרי התגובה שלי?</label>
                         <textarea id="feelings_after" placeholder="מה אני מרגישה כשאני חושבת על איך הגבתי?"></textarea>
                     </div>
                     
                     <div style="margin-bottom: 15px;">
-                        <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px; font-size: 16px;">האם זה השפיע על הקשרים שלי עם אחרים?</label>
+                        <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px;">האם זה השפיע על הקשרים שלי עם אחרים?</label>
                         <textarea id="impact_relationships" placeholder="איך זה השפיע על הקשרים שלי?"></textarea>
                     </div>
                     
                     <div style="margin-bottom: 15px;">
-                        <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px; font-size: 16px;">איך אני חושבת שזה השפיע על אנשים שהיו איתי?</label>
+                        <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px;">איך אני חושבת שזה השפיע על אנשים שהיו איתי?</label>
                         <textarea id="impact_others" placeholder="מה אני חושבת שהם הרגישו?"></textarea>
                     </div>
                     
                     <div style="margin-bottom: 15px;">
-                        <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px; font-size: 16px;">מה הייתי רוצה לנסות או לשנות בפעם הבאה?</label>
+                        <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px;">מה הייתי רוצה לנסות או לשנות בפעם הבאה?</label>
                         <textarea id="want_to_change" placeholder="איך הייתי רוצה להגיב בפעם הבאה?"></textarea>
                     </div>
                     
                     <div style="margin-bottom: 20px;">
-                        <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px; font-size: 16px;">מה הצעד הבא שלי? קטן או גדול – כל צעד חשוב!</label>
+                        <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px;">מה הצעד הבא שלי? קטן או גדול – כל צעד חשוב!</label>
                         <textarea id="next_step" placeholder="איזה צעד אני יכולה לעשות?"></textarea>
                     </div>
                     
                 <div style="background: #F0F8F0; padding: 15px; border-radius: 10px; margin-bottom: 15px; text-align: center;">
-                    <p style="color: #8cb89c; font-size: 16px; margin: 0; line-height: 1.6;">
+                    <p style="color: #8cb89c; font-size: 14px; margin: 0; line-height: 1.6;">
                         💚 <strong>זכרי שכל שינוי לוקח זמן, הרשי לעצמך לטעות וללמוד בדרך שלך.</strong>
                     </p>
                 </div>
                     
                     <div style="margin-bottom: 15px;">
-                        <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px; font-size: 16px;">חזרי לכאן בהמשך כדי לרשום הצלחות או שינויים שהרגשת מאז שעבדת על המודעות הזו:</label>
+                        <label style="display: block; font-weight: bold; color: #4a5568; margin-bottom: 8px;">חזרי לכאן בהמשך כדי לרשום הצלחות או שינויים שהרגשת מאז שעבדת על המודעות הזו:</label>
                         <textarea id="follow_up_progress" placeholder="מה השתנה? איך זה הרגיש?"></textarea>
                     </div>
                 </div>
             </div>
             
             <div class="warning-section" style="background: #F9F5E6; border: 2px solid #D4B896; color: #8B7355;">
-                <h4 style="color: #8cb89c; margin-bottom: 10px; font-size: 15px;">💚 מילים של עידוד ותמיכה</h4>
-                <p style="margin: 0; line-height: 1.6; font-size: 15px;">
+                <h4 style="color: #8cb89c; margin-bottom: 10px;">💚 מילים של עידוד ותמיכה</h4>
+                <p style="margin: 0; line-height: 1.6;">
                     אם את מזהה דפוסים שחוזרים על עצמם או כאב רגשי שלא עובר, זכרי שתמיד אפשר להיעזר באיש מקצוע. 
                     פנייה למטפל או יועץ היא צעד אמיץ וחזק בדרך שלך להרגיש טוב יותר. 💪
                 </p>
